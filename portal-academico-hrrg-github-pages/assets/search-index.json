@@ -1,0 +1,193 @@
+[
+  {
+    "type": "Página",
+    "title": "Inicio",
+    "summary": "Portal de la Dirección Académica de Docencia e Investigación del HRRG.",
+    "url": "index.html",
+    "external": false,
+    "keywords": [
+      "home",
+      "inicio",
+      "portal"
+    ]
+  },
+  {
+    "type": "Página",
+    "title": "Formación",
+    "summary": "Capacitaciones, ateneos, residencias y rotaciones.",
+    "url": "formacion/index.html",
+    "external": false,
+    "keywords": [
+      "formacion",
+      "cursos"
+    ]
+  },
+  {
+    "type": "Capacitación",
+    "title": "Capacitaciones",
+    "summary": "Información oficial sobre capacitaciones del HRRG.",
+    "url": "formacion/capacitaciones/index.html",
+    "external": false,
+    "keywords": [
+      "capacitacion",
+      "curso",
+      "taller"
+    ]
+  },
+  {
+    "type": "Residencias",
+    "title": "Residencias del Equipo de Salud",
+    "summary": "Programas de residencia del HRRG.",
+    "url": "formacion/residencias/index.html",
+    "external": false,
+    "keywords": [
+      "residencia",
+      "medica"
+    ]
+  },
+  {
+    "type": "Rotaciones",
+    "title": "Rotaciones",
+    "summary": "Tipos de rotación, requisitos y documentación necesaria.",
+    "url": "formacion/rotaciones/index.html",
+    "external": false,
+    "keywords": [
+      "rotacion",
+      "rotante"
+    ]
+  },
+  {
+    "type": "Rotaciones",
+    "title": "Solicitar rotación",
+    "summary": "Formulario real para iniciar una solicitud de rotación.",
+    "url": "formacion/rotaciones/solicitud/index.html",
+    "external": false,
+    "keywords": [
+      "solicitar rotacion",
+      "formulario rotacion"
+    ]
+  },
+  {
+    "type": "Investigación",
+    "title": "Investigación en Salud",
+    "summary": "Investigación en salud y repositorio del HRRG.",
+    "url": "investigacion/index.html",
+    "external": false,
+    "keywords": [
+      "investigacion",
+      "proyectos",
+      "repositorio"
+    ]
+  },
+  {
+    "type": "Recursos",
+    "title": "Recursos",
+    "summary": "Formularios, documentos, protocolos y normativas.",
+    "url": "recursos/index.html",
+    "external": false,
+    "keywords": [
+      "recursos",
+      "formularios",
+      "documentos",
+      "protocolos"
+    ]
+  },
+  {
+    "type": "Recursos",
+    "title": "Auditorio",
+    "summary": "Espacio del HRRG para actividades académicas.",
+    "url": "recursos/auditorio/index.html",
+    "external": false,
+    "keywords": [
+      "auditorio"
+    ]
+  },
+  {
+    "type": "Pregunta frecuente",
+    "title": "Preguntas frecuentes",
+    "summary": "Respuestas rápidas sobre formación, rotaciones e investigación.",
+    "url": "recursos/preguntas-frecuentes/index.html",
+    "external": false,
+    "keywords": [
+      "faq",
+      "preguntas frecuentes"
+    ]
+  },
+  {
+    "type": "Institucional",
+    "title": "Institucional",
+    "summary": "Quiénes somos: Dirección Académica del HRRG.",
+    "url": "institucional/index.html",
+    "external": false,
+    "keywords": [
+      "institucional",
+      "quienes somos",
+      "mision"
+    ]
+  },
+  {
+    "type": "Institucional",
+    "title": "CODEI",
+    "summary": "Comité de Docencia e Investigación del HRRG.",
+    "url": "institucional/codei/index.html",
+    "external": false,
+    "keywords": [
+      "codei",
+      "comite"
+    ]
+  },
+  {
+    "type": "Institucional",
+    "title": "Equipo",
+    "summary": "Personas que integran la Dirección Académica.",
+    "url": "institucional/equipo/index.html",
+    "external": false,
+    "keywords": [
+      "equipo"
+    ]
+  },
+  {
+    "type": "Institucional",
+    "title": "Informes de gestión",
+    "summary": "Informes anuales de actividad de la Dirección Académica.",
+    "url": "institucional/informes-de-gestion/index.html",
+    "external": false,
+    "keywords": [
+      "informe de gestion",
+      "2025"
+    ]
+  },
+  {
+    "type": "Novedad",
+    "title": "Novedades",
+    "summary": "Anuncios, convocatorias y novedades de la Dirección Académica.",
+    "url": "novedades/index.html",
+    "external": false,
+    "keywords": [
+      "novedades",
+      "agenda"
+    ]
+  },
+  {
+    "type": "Página",
+    "title": "Contacto",
+    "summary": "WhatsApp, email y dirección de la Dirección Académica.",
+    "url": "contacto/index.html",
+    "external": false,
+    "keywords": [
+      "contacto",
+      "whatsapp",
+      "email"
+    ]
+  },
+  {
+    "type": "Recurso externo",
+    "title": "Guía del Rotante",
+    "summary": "Orientación para quienes inician una rotación en el HRRG.",
+    "url": "https://drive.google.com/drive/folders/1cJ-IOMUGhqwgrQ0qVMu2szmPX2E4XwLX?usp=sharing",
+    "external": true,
+    "keywords": [
+      "guia del rotante"
+    ]
+  }
+]

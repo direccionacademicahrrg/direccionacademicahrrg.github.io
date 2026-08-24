@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Sitemap: pendiente de la URL definitiva de publicación
