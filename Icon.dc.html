@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" style="display:block;flex:none">
+  <sc-for list="{{ paths }}" as="d" hint-placeholder-count="1">
+    <path d="{{ d }}" stroke="{{ color }}" stroke-width="{{ sw }}" stroke-linecap="round" stroke-linejoin="round"></path>
+  </sc-for>
+</svg>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:24,&quot;height&quot;:24},&quot;icon&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;check&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;check&quot;,&quot;x&quot;,&quot;chevron-down&quot;,&quot;chevron-right&quot;,&quot;chevron-left&quot;,&quot;search&quot;,&quot;arrow-left&quot;,&quot;arrow-right&quot;,&quot;download&quot;,&quot;external-link&quot;,&quot;file-text&quot;,&quot;calendar&quot;,&quot;clock&quot;,&quot;map-pin&quot;,&quot;alert-circle&quot;,&quot;check-circle&quot;,&quot;alert-triangle&quot;,&quot;info&quot;,&quot;menu&quot;,&quot;mail&quot;,&quot;phone&quot;,&quot;play&quot;]},&quot;size&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:24,&quot;tsType&quot;:&quot;number&quot;},&quot;color&quot;:{&quot;editor&quot;:null,&quot;default&quot;:&quot;currentColor&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;strokeWidth&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:1.75,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const I = {
+      check: ["M20 6L9 17l-5-5"],
+      x: ["M18 6L6 18", "M6 6l12 12"],
+      "chevron-down": ["M6 9l6 6 6-6"],
+      "chevron-right": ["M9 6l6 6-6 6"],
+      "chevron-left": ["M15 6l-6 6 6 6"],
+      search: ["M4,11 a7,7 0 1,0 14,0 a7,7 0 1,0 -14,0", "M21 21l-4.35-4.35"],
+      "arrow-left": ["M19 12H5", "M12 19l-7-7 7-7"],
+      "arrow-right": ["M5 12h14", "M12 5l7 7-7 7"],
+      download: ["M12 3v12", "M7 10l5 5 5-5", "M5 21h14"],
+      "external-link": ["M14 3h7v7", "M21 3l-9 9", "M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"],
+      "file-text": ["M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z", "M14 2v6h6", "M9 13h6", "M9 17h6"],
+      calendar: ["M3 4h18v18H3z", "M16 2v6", "M8 2v6", "M3 10h18"],
+      clock: ["M3,12 a9,9 0 1,0 18,0 a9,9 0 1,0 -18,0", "M12 7v5l3 3"],
+      "map-pin": ["M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z", "M9,10 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0"],
+      "alert-circle": ["M3,12 a9,9 0 1,0 18,0 a9,9 0 1,0 -18,0", "M12 8v4", "M12 16v0.01"],
+      "check-circle": ["M3,12 a9,9 0 1,0 18,0 a9,9 0 1,0 -18,0", "M22 4L12 14.01L9 11.01"],
+      "alert-triangle": ["M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z", "M12 9v4", "M12 17v0.01"],
+      info: ["M3,12 a9,9 0 1,0 18,0 a9,9 0 1,0 -18,0", "M12 16v-4", "M12 8v0.01"],
+      menu: ["M3 12h18", "M3 6h18", "M3 18h18"],
+      mail: ["M3 6h18v12H3z", "M3 6l9 7l9-7"],
+      phone: ["M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.35-1.35a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"],
+      play: ["M8 5v14l11-7z"]
+    };
+    return {
+      size: this.props.size || 24,
+      color: this.props.color || "currentColor",
+      sw: this.props.strokeWidth || 1.75,
+      paths: I[this.props.icon] || I.check
+    };
+  }
+}
+
+</script>
+</body>
+</html>

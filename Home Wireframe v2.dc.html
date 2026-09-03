@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f2f2f0;font-family:'Public Sans',sans-serif;color:#1a1a1a} a{color:#1a1a1a}</style>
+</helmet>
+
+<div style="padding:40px">
+<div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#767676;margin-bottom:8px">Wireframe v2 — Home corregida tras autocrítica UX</div>
+<div style="font-size:13px;color:#4a4a4a;margin-bottom:32px;max-width:700px">Cambios: se fusionaron Accesos rápidos + ¿Qué necesitás hacer? en un solo módulo de tareas; se fusionaron Novedades + Próximas actividades en un feed único por fecha; WhatsApp vuelve al header mobile; enlaces de texto subrayados. 8 secciones en vez de 10. Pendiente de tu decisión: sumar Auditorio (hoy no está en la lista de tareas prioritarias que definiste).</div>
+
+<!-- ========== A. DESKTOP ========== -->
+<div data-screen-label="A. Home v2 — Desktop" style="margin-bottom:64px">
+<div style="font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:12px">A. Home v2 — Desktop (1280px)</div>
+<div style="width:1280px;background:#fff;border:1px solid #d0d0d0">
+
+  <!-- 1. Header -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:72px;border-bottom:1px solid #d0d0d0">
+    <div style="font-weight:700;font-size:16px">DA · HRRG</div>
+    <div style="display:flex;gap:32px;font-size:14px;font-weight:600;color:#1a1a1a">
+      <span>Formación</span><span>Investigación</span><span>Recursos</span><span>Institucional</span><span>Contacto</span>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center">
+      <dc-import name="Icon" icon="search" size="18" color="#1a1a1a" hint-size="18px,18px"></dc-import>
+      <span style="background:#1a1a1a;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:600">WhatsApp</span>
+    </div>
+  </div>
+
+  <!-- 2. Hero -->
+  <div style="display:flex;gap:48px;padding:64px 40px;align-items:center">
+    <div style="flex:1">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#767676;margin-bottom:14px">Dirección Académica · Docencia e Investigación</div>
+      <div style="font-size:38px;font-weight:700;line-height:1.2;margin-bottom:16px;max-width:520px">Formación, investigación y gestión académica para el equipo de salud de Santa Cruz</div>
+      <div style="font-size:16px;color:#4a4a4a;line-height:1.6;margin-bottom:28px;max-width:480px">Capacitaciones, ateneos, residencias, rotaciones e investigación en salud del Hospital Regional Río Gallegos, en un solo lugar.</div>
+      <div style="display:flex;gap:14px">
+        <span style="background:#1a1a1a;color:#fff;padding:14px 22px;border-radius:6px;font-size:14px;font-weight:600">Ver capacitaciones vigentes</span>
+        <span style="border:1.5px solid #1a1a1a;padding:14px 22px;border-radius:6px;font-size:14px;font-weight:600">Buscar un formulario</span>
+      </div>
+      <div style="font-size:11px;color:#8a8a8a;margin-top:10px">CTAs alineados a los accesos históricamente más usados (Capacitaciones y Formularios).</div>
+    </div>
+    <div style="flex:1;height:320px;border:1.5px dashed #b0b0b0;background:#ececec;display:flex;align-items:center;justify-content:center;font-size:13px;color:#8a8a8a">foto institucional — equipo de salud / auditorio</div>
+  </div>
+
+  <!-- 3. Módulo único de tareas (fusiona accesos rápidos + qué necesitás hacer) -->
+  <div style="padding:40px;border-top:1px solid #d0d0d0">
+    <div style="font-size:20px;font-weight:700;margin-bottom:6px">¿Qué necesitás hacer?</div>
+    <div style="font-size:13px;color:#767676;margin-bottom:20px">Un solo punto de entrada por tarea — sin repetir categorías.</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="calendar" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:14px;font-weight:700">Inscribirme a una capacitación</div>
+        <div style="font-size:12px;color:#767676">Cursos con inscripción abierta</div>
+      </div>
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="file-text" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:14px;font-weight:700">Consultar sobre residencias</div>
+        <div style="font-size:12px;color:#767676">Especialidades y cronograma</div>
+      </div>
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="arrow-right" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:14px;font-weight:700">Solicitar una rotación</div>
+        <div style="font-size:12px;color:#767676">Requisitos y formulario</div>
+      </div>
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="info" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:14px;font-weight:700">Ver ateneos</div>
+        <div style="font-size:12px;color:#767676">Próximos y realizados</div>
+      </div>
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="search" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:14px;font-weight:700">Presentar un proyecto de investigación</div>
+        <div style="font-size:12px;color:#767676">Requisitos y comité de ética</div>
+      </div>
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="download" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:14px;font-weight:700">Buscar un formulario</div>
+        <div style="font-size:12px;color:#767676">Rotación, residencia, investigación</div>
+      </div>
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="phone" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:14px;font-weight:700">Contactar a Dirección Académica</div>
+        <div style="font-size:12px;color:#767676">WhatsApp, email o en persona</div>
+      </div>
+      <div style="border:1.5px dashed #b0b0b0;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center;text-align:center">
+        <div style="font-size:12px;color:#8a8a8a">¿Sumamos Auditorio acá? Es de los accesos más usados hoy, pero no estaba en tu lista de prioridades para esta Home.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Novedades y agenda (fusiona novedades + próximas actividades) -->
+  <div style="padding:40px;border-top:1px solid #d0d0d0;background:#fafafa">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px">
+      <div style="font-size:20px;font-weight:700">Novedades y agenda</div>
+      <a href="#" style="font-size:13px;font-weight:600;text-decoration:underline">Ver todo →</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1px;background:#d0d0d0;border:1px solid #d0d0d0;border-radius:8px;overflow:hidden">
+      <div style="background:#fff;display:flex;gap:20px;align-items:center;padding:16px 20px">
+        <div style="width:56px;text-align:center;flex:none"><div style="font-size:18px;font-weight:700">12</div><div style="font-size:10px;color:#767676">AGO</div></div>
+        <div style="display:inline-block;background:#e4e4e4;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:600;flex:none">Capacitación</div>
+        <div style="flex:1;font-size:14px;font-weight:600">Inscripción abierta: Curso de RCP Básica</div>
+      </div>
+      <div style="background:#fff;display:flex;gap:20px;align-items:center;padding:16px 20px">
+        <div style="width:56px;text-align:center;flex:none"><div style="font-size:18px;font-weight:700">18</div><div style="font-size:10px;color:#767676">AGO</div></div>
+        <div style="display:inline-block;background:#e4e4e4;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:600;flex:none">Ateneo</div>
+        <div style="flex:1;font-size:14px;font-weight:600">Manejo del paciente politraumatizado</div>
+        <div style="display:flex;gap:14px;font-size:12px;color:#767676;flex:none">
+          <span style="display:flex;align-items:center;gap:4px"><dc-import name="Icon" icon="clock" size="13" color="#767676" hint-size="13px,13px"></dc-import>10:00</span>
+          <span style="display:flex;align-items:center;gap:4px"><dc-import name="Icon" icon="map-pin" size="13" color="#767676" hint-size="13px,13px"></dc-import>Auditorio</span>
+        </div>
+      </div>
+      <div style="background:#fff;display:flex;gap:20px;align-items:center;padding:16px 20px">
+        <div style="width:56px;text-align:center;flex:none"><div style="font-size:18px;font-weight:700">20</div><div style="font-size:10px;color:#767676">AGO</div></div>
+        <div style="display:inline-block;background:#e4e4e4;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:600;flex:none">Residencias</div>
+        <div style="flex:1;font-size:14px;font-weight:600">Convocatoria 2027 a Residencias Médicas del HRRG</div>
+      </div>
+      <div style="background:#fff;display:flex;gap:20px;align-items:center;padding:16px 20px">
+        <div style="width:56px;text-align:center;flex:none"><div style="font-size:18px;font-weight:700">29</div><div style="font-size:10px;color:#767676">AGO</div></div>
+        <div style="display:inline-block;background:#e4e4e4;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:600;flex:none">Investigación</div>
+        <div style="flex:1;font-size:14px;font-weight:600">Jornada de Investigación en Salud Pública</div>
+        <div style="display:flex;gap:14px;font-size:12px;color:#767676;flex:none">
+          <span style="display:flex;align-items:center;gap:4px"><dc-import name="Icon" icon="clock" size="13" color="#767676" hint-size="13px,13px"></dc-import>14:00</span>
+          <span style="display:flex;align-items:center;gap:4px"><dc-import name="Icon" icon="map-pin" size="13" color="#767676" hint-size="13px,13px"></dc-import>Auditorio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Documentos y protocolos destacados -->
+  <div style="padding:40px;border-top:1px solid #d0d0d0">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px">
+      <div style="font-size:20px;font-weight:700">Documentos y protocolos destacados</div>
+      <a href="#" style="font-size:13px;font-weight:600;text-decoration:underline">Ver todos los recursos →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="file-text" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:13px;font-weight:700">Reglamento de Rotaciones y Visitas Autorizadas</div>
+        <div style="font-size:11px;color:#767676">PDF · actualizado 06/2026</div>
+      </div>
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="file-text" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:13px;font-weight:700">Protocolo de Bioseguridad Hospitalaria</div>
+        <div style="font-size:11px;color:#767676">PDF · actualizado 03/2026</div>
+      </div>
+      <div style="border:1px solid #d0d0d0;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px">
+        <dc-import name="Icon" icon="file-text" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+        <div style="font-size:13px;font-weight:700">Guía para la Presentación de Proyectos de Investigación</div>
+        <div style="font-size:11px;color:#767676">PDF · actualizado 01/2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Quiénes somos -->
+  <div style="padding:40px;border-top:1px solid #d0d0d0;background:#fafafa;display:flex;gap:40px;align-items:center">
+    <div style="width:280px;height:180px;flex:none;border:1.5px dashed #b0b0b0;background:#ececec;display:flex;align-items:center;justify-content:center;font-size:12px;color:#8a8a8a;text-align:center">foto — equipo / edificio HRRG</div>
+    <div>
+      <div style="font-size:20px;font-weight:700;margin-bottom:10px">Quiénes somos</div>
+      <div style="font-size:14px;color:#4a4a4a;line-height:1.6;max-width:600px;margin-bottom:12px">La Dirección Académica de Docencia e Investigación coordina la formación continua, las residencias, las rotaciones y la actividad científica del Hospital Regional Río Gallegos, en articulación con el Comité de Docencia e Investigación (CODEI).</div>
+      <a href="#" style="font-size:13px;font-weight:600;text-decoration:underline">Conocé más sobre nosotros →</a>
+    </div>
+  </div>
+
+  <!-- 7. Contacto -->
+  <div style="padding:40px;border-top:1px solid #d0d0d0;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <div style="font-size:20px;font-weight:700;margin-bottom:10px">¿Tenés una consulta puntual?</div>
+      <div style="font-size:13px;color:#4a4a4a;line-height:1.6">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><dc-import name="Icon" icon="mail" size="14" color="#767676" hint-size="14px,14px"></dc-import>direccionacademicahrrg@hrrg.gob.ar</div>
+        <div>Lunes a viernes de 8 a 15 h</div>
+      </div>
+    </div>
+    <span style="background:#1a1a1a;color:#fff;padding:14px 24px;border-radius:6px;font-size:14px;font-weight:600">Escribinos por WhatsApp</span>
+  </div>
+
+  <!-- 8. Footer -->
+  <div style="background:#1a1a1a;color:#fff;padding:40px">
+    <div style="display:flex;gap:56px;margin-bottom:28px">
+      <div><div style="font-size:12px;font-weight:700;opacity:.65;margin-bottom:10px">FORMACIÓN</div><div style="display:flex;flex-direction:column;gap:8px;font-size:13px"><span>Capacitaciones</span><span>Ateneos</span><span>Residencias</span><span>Rotaciones</span></div></div>
+      <div><div style="font-size:12px;font-weight:700;opacity:.65;margin-bottom:10px">INVESTIGACIÓN</div><div style="display:flex;flex-direction:column;gap:8px;font-size:13px"><span>Proyectos y publicaciones</span><span>Presentar un proyecto</span><span>Normativa y ética</span></div></div>
+      <div><div style="font-size:12px;font-weight:700;opacity:.65;margin-bottom:10px">RECURSOS</div><div style="display:flex;flex-direction:column;gap:8px;font-size:13px"><span>Formularios</span><span>Documentos y protocolos</span><span>Auditorio</span><span>Preguntas frecuentes</span></div></div>
+      <div><div style="font-size:12px;font-weight:700;opacity:.65;margin-bottom:10px">INSTITUCIONAL</div><div style="display:flex;flex-direction:column;gap:8px;font-size:13px"><span>Quiénes somos</span><span>CODEI</span><span>Equipo</span><span>Informes de gestión</span></div></div>
+      <div><div style="font-size:12px;font-weight:700;opacity:.65;margin-bottom:10px">CONTACTO</div><div style="display:flex;flex-direction:column;gap:8px;font-size:13px"><span>direccionacademicahrrg@hrrg.gob.ar</span><span>WhatsApp</span><span>YouTube · LinkedIn</span></div></div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:16px;display:flex;justify-content:space-between;font-size:12px;opacity:.7">
+      <span>Hospital Regional Río Gallegos · Ministerio de Salud de Santa Cruz</span>
+      <span>Declaración de accesibilidad</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ========== B. MOBILE ========== -->
+<div data-screen-label="B. Home v2 — Mobile">
+<div style="font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:12px">B. Home v2 — Mobile (375px)</div>
+<div style="width:375px;background:#fff;border:1px solid #d0d0d0">
+
+  <!-- 1. Header (con WhatsApp restituido) -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:56px;border-bottom:1px solid #d0d0d0">
+    <div style="font-weight:700;font-size:15px">DA · HRRG</div>
+    <div style="display:flex;gap:14px;align-items:center">
+      <dc-import name="Icon" icon="search" size="20" color="#1a1a1a" hint-size="20px,20px"></dc-import>
+      <dc-import name="Icon" icon="phone" size="20" color="#1a1a1a" hint-size="20px,20px"></dc-import>
+      <dc-import name="Icon" icon="menu" size="22" color="#1a1a1a" hint-size="22px,22px"></dc-import>
+    </div>
+  </div>
+
+  <!-- 2. Hero -->
+  <div style="padding:24px 16px">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#767676;margin-bottom:10px">Dirección Académica · HRRG</div>
+    <div style="font-size:24px;font-weight:700;line-height:1.25;margin-bottom:10px">Formación, investigación y gestión académica para el equipo de salud</div>
+    <div style="font-size:14px;color:#4a4a4a;line-height:1.55;margin-bottom:16px">Capacitaciones, ateneos, residencias, rotaciones e investigación del HRRG en un solo lugar.</div>
+    <div style="height:160px;border:1.5px dashed #b0b0b0;background:#ececec;display:flex;align-items:center;justify-content:center;font-size:12px;color:#8a8a8a;margin-bottom:16px">foto institucional</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="background:#1a1a1a;color:#fff;padding:14px;border-radius:6px;font-size:14px;font-weight:600;text-align:center">Ver capacitaciones vigentes</span>
+      <span style="border:1.5px solid #1a1a1a;padding:14px;border-radius:6px;font-size:14px;font-weight:600;text-align:center">Buscar un formulario</span>
+    </div>
+  </div>
+
+  <!-- 3. Módulo único de tareas -->
+  <div style="padding:24px 16px;border-top:1px solid #d0d0d0">
+    <div style="font-size:17px;font-weight:700;margin-bottom:4px">¿Qué necesitás hacer?</div>
+    <div style="font-size:12px;color:#767676;margin-bottom:14px">Un solo punto de entrada por tarea.</div>
+    <div style="display:flex;flex-direction:column;gap:1px;background:#d0d0d0;border:1px solid #d0d0d0;border-radius:8px;overflow:hidden">
+      <div style="background:#fff;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Inscribirme a una capacitación</span><dc-import name="Icon" icon="chevron-right" size="16" color="#767676" hint-size="16px,16px"></dc-import></div>
+      <div style="background:#fff;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Consultar sobre residencias</span><dc-import name="Icon" icon="chevron-right" size="16" color="#767676" hint-size="16px,16px"></dc-import></div>
+      <div style="background:#fff;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Solicitar una rotación</span><dc-import name="Icon" icon="chevron-right" size="16" color="#767676" hint-size="16px,16px"></dc-import></div>
+      <div style="background:#fff;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Ver ateneos</span><dc-import name="Icon" icon="chevron-right" size="16" color="#767676" hint-size="16px,16px"></dc-import></div>
+      <div style="background:#fff;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Presentar un proyecto de investigación</span><dc-import name="Icon" icon="chevron-right" size="16" color="#767676" hint-size="16px,16px"></dc-import></div>
+      <div style="background:#fff;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Buscar un formulario</span><dc-import name="Icon" icon="chevron-right" size="16" color="#767676" hint-size="16px,16px"></dc-import></div>
+      <div style="background:#fff;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Contactar a Dirección Académica</span><dc-import name="Icon" icon="chevron-right" size="16" color="#767676" hint-size="16px,16px"></dc-import></div>
+    </div>
+  </div>
+
+  <!-- 4. Novedades y agenda -->
+  <div style="padding:24px 16px;border-top:1px solid #d0d0d0;background:#fafafa">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px">
+      <div style="font-size:17px;font-weight:700">Novedades y agenda</div>
+      <a href="#" style="font-size:13px;font-weight:600;text-decoration:underline">Ver todo →</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1px;background:#d0d0d0;border:1px solid #d0d0d0;border-radius:8px;overflow:hidden">
+      <div style="background:#fff;display:flex;gap:12px;align-items:center;padding:12px 14px;min-height:44px">
+        <div style="width:38px;text-align:center;flex:none"><div style="font-size:15px;font-weight:700">12</div><div style="font-size:9px;color:#767676">AGO</div></div>
+        <div style="flex:1;font-size:13px;font-weight:600">Inscripción abierta: Curso de RCP Básica</div>
+      </div>
+      <div style="background:#fff;display:flex;gap:12px;align-items:center;padding:12px 14px;min-height:44px">
+        <div style="width:38px;text-align:center;flex:none"><div style="font-size:15px;font-weight:700">18</div><div style="font-size:9px;color:#767676">AGO</div></div>
+        <div style="flex:1;font-size:13px;font-weight:600">Ateneo: paciente politraumatizado</div>
+      </div>
+      <div style="background:#fff;display:flex;gap:12px;align-items:center;padding:12px 14px;min-height:44px">
+        <div style="width:38px;text-align:center;flex:none"><div style="font-size:15px;font-weight:700">20</div><div style="font-size:9px;color:#767676">AGO</div></div>
+        <div style="flex:1;font-size:13px;font-weight:600">Convocatoria 2027 a Residencias</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Documentos y protocolos destacados -->
+  <div style="padding:24px 0 24px 16px;border-top:1px solid #d0d0d0">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;padding-right:16px">
+      <div style="font-size:17px;font-weight:700">Documentos destacados</div>
+      <a href="#" style="font-size:13px;font-weight:600;text-decoration:underline">Ver todos →</a>
+    </div>
+    <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:4px">
+      <div style="flex:none;width:200px;border:1px solid #d0d0d0;border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px">
+        <dc-import name="Icon" icon="file-text" size="20" color="#1a1a1a" hint-size="20px,20px"></dc-import>
+        <div style="font-size:13px;font-weight:700">Reglamento de Rotaciones</div>
+        <div style="font-size:11px;color:#767676">PDF · 06/2026</div>
+      </div>
+      <div style="flex:none;width:200px;border:1px solid #d0d0d0;border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px;margin-right:16px">
+        <dc-import name="Icon" icon="file-text" size="20" color="#1a1a1a" hint-size="20px,20px"></dc-import>
+        <div style="font-size:13px;font-weight:700">Protocolo de Bioseguridad</div>
+        <div style="font-size:11px;color:#767676">PDF · 03/2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Quiénes somos -->
+  <div style="padding:24px 16px;border-top:1px solid #d0d0d0;background:#fafafa">
+    <div style="font-size:17px;font-weight:700;margin-bottom:10px">Quiénes somos</div>
+    <div style="font-size:13px;color:#4a4a4a;line-height:1.6;margin-bottom:10px">La Dirección Académica coordina la formación continua, las residencias, las rotaciones y la actividad científica del HRRG, junto al CODEI.</div>
+    <a href="#" style="font-size:13px;font-weight:600;text-decoration:underline">Conocé más →</a>
+  </div>
+
+  <!-- 7. Contacto -->
+  <div style="padding:24px 16px;border-top:1px solid #d0d0d0">
+    <div style="font-size:17px;font-weight:700;margin-bottom:10px">¿Tenés una consulta puntual?</div>
+    <div style="font-size:13px;color:#4a4a4a;margin-bottom:14px">Lunes a viernes de 8 a 15 h · direccionacademicahrrg@hrrg.gob.ar</div>
+    <span style="display:block;background:#1a1a1a;color:#fff;padding:14px;border-radius:6px;font-size:14px;font-weight:600;text-align:center">Escribinos por WhatsApp</span>
+  </div>
+
+  <!-- 8. Footer -->
+  <div style="background:#1a1a1a;color:#fff;padding:24px 16px">
+    <div style="display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.15);border-radius:8px;overflow:hidden;margin-bottom:20px">
+      <div style="background:#1a1a1a;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Formación</span><dc-import name="Icon" icon="chevron-down" size="16" color="#fff" hint-size="16px,16px"></dc-import></div>
+      <div style="background:#1a1a1a;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Investigación</span><dc-import name="Icon" icon="chevron-down" size="16" color="#fff" hint-size="16px,16px"></dc-import></div>
+      <div style="background:#1a1a1a;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Recursos</span><dc-import name="Icon" icon="chevron-down" size="16" color="#fff" hint-size="16px,16px"></dc-import></div>
+      <div style="background:#1a1a1a;display:flex;justify-content:space-between;align-items:center;padding:14px;min-height:44px"><span style="font-size:14px;font-weight:600">Institucional</span><dc-import name="Icon" icon="chevron-down" size="16" color="#fff" hint-size="16px,16px"></dc-import></div>
+    </div>
+    <div style="font-size:12px;opacity:.75;line-height:1.6">Hospital Regional Río Gallegos<br>Ministerio de Salud de Santa Cruz<br>Declaración de accesibilidad</div>
+  </div>
+
+</div>
+</div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

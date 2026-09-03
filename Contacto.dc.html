@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f2f2f0;font-family:'Public Sans',sans-serif} a{color:oklch(42% 0.13 250);text-decoration:underline} a:hover{color:oklch(34% 0.11 250)}</style>
+</helmet>
+
+<div style="padding:40px;display:flex;flex-direction:column;gap:56px">
+
+<div data-screen-label="Contacto — Desktop">
+<div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:oklch(45% 0.01 90);margin-bottom:10px;font-family:'Public Sans',sans-serif">Contacto — Desktop (1440px)</div>
+<div style="width:1440px;background:#fff;background-image:radial-gradient(circle,oklch(20% 0.02 250 / 0.05) 1px,transparent 1.2px);background-size:18px 18px">
+<dc-import name="SiteHeader" variant="desktop" active-nav="Contacto" hint-size="1440px,80px"></dc-import>
+<div style="padding:20px 80px 0;display:flex;align-items:center;gap:8px;font-family:'Public Sans',sans-serif;font-size:13px"><a href="Home.dc.html">Inicio</a><span style="color:oklch(68% 0.008 90)">›</span><span style="color:oklch(15% 0.006 90)" aria-current="page">Contacto</span></div>
+<div style="padding:24px 80px 0;max-width:760px">
+  <h1 style="margin:0 0 14px;font-family:'Source Serif 4',serif;font-weight:700;font-size:42px;letter-spacing:-.01em;color:oklch(15% 0.006 90)">Contacto</h1>
+  <div style="font-family:'Public Sans',sans-serif;font-size:16px;line-height:1.6;color:oklch(35% 0.01 90)">Escribinos por WhatsApp, email, o completá el formulario. Te respondemos en 1 a 2 días hábiles.</div>
+</div>
+
+<div style="padding:40px 80px 80px;display:flex;gap:64px;align-items:flex-start">
+  <div style="width:340px;flex:none;display:flex;flex-direction:column;gap:24px;background:oklch(97% 0.012 60);border-radius:6px;padding:28px">
+    <div style="display:flex;gap:14px"><dc-import name="Icon" icon="phone" size="20" color="oklch(42% 0.13 250)" hint-size="20px,20px"></dc-import><div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;color:oklch(15% 0.006 90)">WhatsApp</div><a href="https://api.whatsapp.com/send?phone=5492966270210" target="_blank" rel="noopener" style="font-family:'Public Sans',sans-serif;font-size:13px">+54 9 2966 27-0210</a></div></div>
+    <div style="display:flex;gap:14px"><dc-import name="Icon" icon="mail" size="20" color="oklch(42% 0.13 250)" hint-size="20px,20px"></dc-import><div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;color:oklch(15% 0.006 90)">Email</div><a href="mailto:docenciahrrg@gmail.com" style="font-family:'Public Sans',sans-serif;font-size:13px">docenciahrrg@gmail.com</a></div></div>
+    <div style="display:flex;gap:14px"><dc-import name="Icon" icon="map-pin" size="20" color="oklch(42% 0.13 250)" hint-size="20px,20px"></dc-import><div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;color:oklch(15% 0.006 90)">Dirección</div><div style="font-family:'Public Sans',sans-serif;font-size:13px;color:oklch(35% 0.01 90)">José Ingenieros 98, Río Gallegos, Santa Cruz. Dirección Académica: 1er piso.</div></div></div>
+    <div style="display:flex;gap:14px"><dc-import name="Icon" icon="clock" size="20" color="oklch(42% 0.13 250)" hint-size="20px,20px"></dc-import><div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;color:oklch(15% 0.006 90)">Horario de atención</div><div style="font-family:'Public Sans',sans-serif;font-size:13px;color:oklch(35% 0.01 90)">Lunes a viernes de 8 a 15 h</div></div></div>
+  </div>
+
+  <div style="flex:1;max-width:520px">
+    <sc-if value="{{ showForm }}">
+      <div style="font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(45% 0.01 90);margin-bottom:18px">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</div>
+      <form onSubmit="{{ handleSubmit }}" novalidate="" style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <label for="contacto-nombre-desktop" style="font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;color:oklch(15% 0.006 90)">Nombre completo <span aria-hidden="true">*</span></label>
+          <input id="contacto-nombre-desktop" name="name" autocomplete="name" value="{{ nombre }}" onChange="{{ setNombre }}" aria-required="true" aria-invalid="{{ errorNombre }}" aria-describedby="{{ nombreDescribedBy }}" style="height:44px;padding:0 12px;border:1px solid {{ borderNombre }};border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px" style-focus="border-color:oklch(50% 0.15 250);box-shadow:0 0 0 3px oklch(93% 0.035 250);outline:none"></input>
+          <sc-if value="{{ errorNombre }}"><div id="contacto-nombre-desktop-error" style="display:flex;gap:5px;align-items:center;font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(38% 0.16 25)"><dc-import name="Icon" icon="alert-circle" size="14" color="oklch(38% 0.16 25)" hint-size="14px,14px"></dc-import>Ingresá tu nombre completo</div></sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <label for="contacto-email-desktop" style="font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;color:oklch(15% 0.006 90)">Email <span aria-hidden="true">*</span></label>
+          <input id="contacto-email-desktop" name="email" type="email" autocomplete="email" value="{{ email }}" onChange="{{ setEmail }}" placeholder="nombre@ejemplo.com" aria-required="true" aria-invalid="{{ errorEmail }}" aria-describedby="{{ emailDescribedBy }}" style="height:44px;padding:0 12px;border:1px solid {{ borderEmail }};border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px" style-focus="border-color:oklch(50% 0.15 250);box-shadow:0 0 0 3px oklch(93% 0.035 250);outline:none"></input>
+          <sc-if value="{{ errorEmail }}"><div id="contacto-email-desktop-error" style="display:flex;gap:5px;align-items:center;font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(38% 0.16 25)"><dc-import name="Icon" icon="alert-circle" size="14" color="oklch(38% 0.16 25)" hint-size="14px,14px"></dc-import>Ingresá un email válido</div></sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <label for="contacto-asunto-desktop" style="font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;color:oklch(15% 0.006 90)">Asunto</label>
+          <select id="contacto-asunto-desktop" value="{{ asunto }}" onChange="{{ setAsunto }}" style="height:44px;padding:0 12px;border:1px solid oklch(82% 0.006 90);border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px;color:oklch(35% 0.01 90);background:#fff" style-focus="border-color:oklch(50% 0.15 250);box-shadow:0 0 0 3px oklch(93% 0.035 250);outline:none"><option>Capacitaciones</option><option>Rotaciones</option><option>Residencias</option><option>Investigación</option><option>Recursos y formularios</option><option>Otra consulta</option></select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <label for="contacto-mensaje-desktop" style="font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;color:oklch(15% 0.006 90)">Mensaje <span aria-hidden="true">*</span></label>
+          <textarea id="contacto-mensaje-desktop" value="{{ mensaje }}" onChange="{{ setMensaje }}" aria-required="true" aria-invalid="{{ errorMensaje }}" aria-describedby="{{ mensajeDescribedBy }}" style="min-height:120px;padding:10px 12px;border:1px solid {{ borderMensaje }};border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px;resize:vertical" style-focus="border-color:oklch(50% 0.15 250);box-shadow:0 0 0 3px oklch(93% 0.035 250);outline:none"></textarea>
+          <sc-if value="{{ errorMensaje }}"><div id="contacto-mensaje-desktop-error" style="display:flex;gap:5px;align-items:center;font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(38% 0.16 25)"><dc-import name="Icon" icon="alert-circle" size="14" color="oklch(38% 0.16 25)" hint-size="14px,14px"></dc-import>Escribí tu mensaje</div></sc-if>
+        </div>
+        <button type="submit" disabled="{{ submitDisabled }}" style="width:fit-content;background:{{ submitBg }};color:#fff;padding:14px 24px;border-radius:6px;border:none;font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;cursor:{{ submitCursor }}" style-focus="outline:none;box-shadow:0 0 0 3px #fff,0 0 0 5px oklch(42% 0.13 250)">Enviar mensaje</button>
+      </form>
+    </sc-if>
+    <sc-if value="{{ showLoading }}">
+      <div role="status" aria-live="polite" style="display:flex;align-items:center;gap:10px;padding:8px 0;font-family:'Public Sans',sans-serif;font-size:14px;color:oklch(45% 0.01 90)">
+        <span style="width:16px;height:16px;border:2px solid oklch(82% 0.006 90);border-top-color:oklch(42% 0.13 250);border-radius:50%"></span>Enviando mensaje…
+      </div>
+    </sc-if>
+    <sc-if value="{{ showSuccess }}">
+      <div role="status" aria-live="polite" style="display:flex;gap:12px;padding:18px;border:1px solid oklch(45% 0.13 150 / 0.4);background:oklch(95% 0.03 150);border-radius:6px">
+        <dc-import name="Icon" icon="check-circle" size="22" color="oklch(35% 0.11 150)" hint-size="22px,22px"></dc-import>
+        <div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:15px;color:oklch(15% 0.006 90);margin-bottom:4px">Mensaje enviado</div><div style="font-family:'Public Sans',sans-serif;font-size:13px;color:oklch(35% 0.01 90)">Te responderemos en 1 a 2 días hábiles a {{ email }}.</div></div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ showError }}">
+      <div role="alert" style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;gap:12px;padding:18px;border:1px solid oklch(48% 0.19 25 / 0.3);background:oklch(95% 0.035 25);border-radius:6px">
+          <dc-import name="Icon" icon="alert-circle" size="22" color="oklch(38% 0.16 25)" hint-size="22px,22px"></dc-import>
+          <div style="font-family:'Public Sans',sans-serif;font-size:14px;color:oklch(35% 0.01 90)"><b>No pudimos enviar tu mensaje.</b> Revisá tu conexión e intentá de nuevo, o escribinos por WhatsApp.</div>
+        </div>
+        <button type="button" onClick="{{ retry }}" style="width:fit-content;background:oklch(50% 0.15 250);color:#fff;padding:12px 22px;border:none;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer">Reintentar</button>
+      </div>
+    </sc-if>
+  </div>
+</div>
+
+<dc-import name="SiteFooter" variant="desktop" hint-size="1440px,320px"></dc-import>
+</div>
+</div>
+
+<div data-screen-label="Contacto — Mobile">
+<div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:oklch(45% 0.01 90);margin-bottom:10px;font-family:'Public Sans',sans-serif">Contacto — Mobile (390px)</div>
+<div style="width:390px;background:#fff;background-image:radial-gradient(circle,oklch(20% 0.02 250 / 0.05) 1px,transparent 1.2px);background-size:18px 18px">
+<dc-import name="SiteHeader" variant="mobile" active-nav="Contacto" hint-size="390px,60px"></dc-import>
+<div style="padding:14px 20px 0;display:flex;align-items:center;gap:8px;font-family:'Public Sans',sans-serif;font-size:13px"><dc-import name="Icon" icon="chevron-left" size="14" color="oklch(42% 0.13 250)" hint-size="14px,14px"></dc-import><a href="Home.dc.html" style="text-decoration:none">Inicio</a></div>
+<div style="padding:14px 20px 20px"><h2 style="margin:0 0 10px;font-family:'Source Serif 4',serif;font-weight:700;font-size:26px;letter-spacing:-.015em;color:oklch(15% 0.006 90)">Contacto</h2><div style="font-family:'Public Sans',sans-serif;font-size:14px;line-height:1.55;color:oklch(35% 0.01 90)">Te respondemos en 1 a 2 días hábiles.</div></div>
+
+<div style="padding:16px 20px 24px;display:flex;flex-direction:column;gap:16px;background:oklch(97% 0.012 60);margin:0 20px 20px;border-radius:6px">
+  <div style="display:flex;gap:12px"><dc-import name="Icon" icon="phone" size="18" color="oklch(42% 0.13 250)" hint-size="18px,18px"></dc-import><div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:13px;color:oklch(15% 0.006 90)">WhatsApp</div><a href="https://api.whatsapp.com/send?phone=5492966270210" target="_blank" rel="noopener" style="font-family:'Public Sans',sans-serif;font-size:12px">+54 9 2966 27-0210</a></div></div>
+  <div style="display:flex;gap:12px"><dc-import name="Icon" icon="mail" size="18" color="oklch(42% 0.13 250)" hint-size="18px,18px"></dc-import><div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:13px;color:oklch(15% 0.006 90)">Email</div><a href="mailto:docenciahrrg@gmail.com" style="font-family:'Public Sans',sans-serif;font-size:12px">docenciahrrg@gmail.com</a></div></div>
+  <div style="display:flex;gap:12px"><dc-import name="Icon" icon="map-pin" size="18" color="oklch(42% 0.13 250)" hint-size="18px,18px"></dc-import><div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:13px;color:oklch(15% 0.006 90)">Dirección</div><div style="font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(35% 0.01 90)">José Ingenieros 98, Río Gallegos. Dirección Académica: 1er piso.</div></div></div>
+  <div style="display:flex;gap:12px"><dc-import name="Icon" icon="clock" size="18" color="oklch(42% 0.13 250)" hint-size="18px,18px"></dc-import><div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:13px;color:oklch(15% 0.006 90)">Horario</div><div style="font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(35% 0.01 90)">Lunes a viernes de 8 a 15 h</div></div></div>
+</div>
+
+<div style="padding:20px;border-top:1px solid oklch(90% 0.005 90)">
+  <sc-if value="{{ showForm }}">
+    <div style="font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(45% 0.01 90);margin-bottom:16px">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</div>
+    <form onSubmit="{{ handleSubmit }}" novalidate="" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label for="contacto-nombre-mobile" style="font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;color:oklch(15% 0.006 90)">Nombre completo <span aria-hidden="true">*</span></label>
+        <input id="contacto-nombre-mobile" name="name" autocomplete="name" value="{{ nombre }}" onChange="{{ setNombre }}" aria-required="true" aria-invalid="{{ errorNombre }}" aria-describedby="{{ nombreDescribedBy }}" style="height:46px;padding:0 12px;border:1px solid {{ borderNombre }};border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px" style-focus="border-color:oklch(50% 0.15 250);box-shadow:0 0 0 3px oklch(93% 0.035 250);outline:none"></input>
+        <sc-if value="{{ errorNombre }}"><div id="contacto-nombre-mobile-error" style="display:flex;gap:5px;align-items:center;font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(38% 0.16 25)"><dc-import name="Icon" icon="alert-circle" size="14" color="oklch(38% 0.16 25)" hint-size="14px,14px"></dc-import>Ingresá tu nombre completo</div></sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label for="contacto-email-mobile" style="font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;color:oklch(15% 0.006 90)">Email <span aria-hidden="true">*</span></label>
+        <input id="contacto-email-mobile" name="email" type="email" autocomplete="email" value="{{ email }}" onChange="{{ setEmail }}" placeholder="nombre@ejemplo.com" aria-required="true" aria-invalid="{{ errorEmail }}" aria-describedby="{{ emailDescribedBy }}" style="height:46px;padding:0 12px;border:1px solid {{ borderEmail }};border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px" style-focus="border-color:oklch(50% 0.15 250);box-shadow:0 0 0 3px oklch(93% 0.035 250);outline:none"></input>
+        <sc-if value="{{ errorEmail }}"><div id="contacto-email-mobile-error" style="display:flex;gap:5px;align-items:center;font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(38% 0.16 25)"><dc-import name="Icon" icon="alert-circle" size="14" color="oklch(38% 0.16 25)" hint-size="14px,14px"></dc-import>Ingresá un email válido</div></sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label for="contacto-asunto-mobile" style="font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;color:oklch(15% 0.006 90)">Asunto</label>
+        <select id="contacto-asunto-mobile" value="{{ asunto }}" onChange="{{ setAsunto }}" style="height:46px;padding:0 12px;border:1px solid oklch(82% 0.006 90);border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px;color:oklch(35% 0.01 90);background:#fff" style-focus="border-color:oklch(50% 0.15 250);box-shadow:0 0 0 3px oklch(93% 0.035 250);outline:none"><option>Capacitaciones</option><option>Rotaciones</option><option>Residencias</option><option>Investigación</option><option>Recursos y formularios</option><option>Otra consulta</option></select>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label for="contacto-mensaje-mobile" style="font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;color:oklch(15% 0.006 90)">Mensaje <span aria-hidden="true">*</span></label>
+        <textarea id="contacto-mensaje-mobile" value="{{ mensaje }}" onChange="{{ setMensaje }}" aria-required="true" aria-invalid="{{ errorMensaje }}" aria-describedby="{{ mensajeDescribedBy }}" style="min-height:110px;padding:10px 12px;border:1px solid {{ borderMensaje }};border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px;resize:vertical" style-focus="border-color:oklch(50% 0.15 250);box-shadow:0 0 0 3px oklch(93% 0.035 250);outline:none"></textarea>
+        <sc-if value="{{ errorMensaje }}"><div id="contacto-mensaje-mobile-error" style="display:flex;gap:5px;align-items:center;font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(38% 0.16 25)"><dc-import name="Icon" icon="alert-circle" size="14" color="oklch(38% 0.16 25)" hint-size="14px,14px"></dc-import>Escribí tu mensaje</div></sc-if>
+      </div>
+      <button type="submit" disabled="{{ submitDisabled }}" style="display:block;text-align:center;background:{{ submitBg }};color:#fff;padding:14px;border-radius:6px;border:none;font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;cursor:{{ submitCursor }}">Enviar mensaje</button>
+    </form>
+  </sc-if>
+  <sc-if value="{{ showLoading }}">
+    <div role="status" aria-live="polite" style="display:flex;align-items:center;gap:10px;padding:8px 0;font-family:'Public Sans',sans-serif;font-size:14px;color:oklch(45% 0.01 90)">
+      <span style="width:16px;height:16px;border:2px solid oklch(82% 0.006 90);border-top-color:oklch(42% 0.13 250);border-radius:50%"></span>Enviando mensaje…
+    </div>
+  </sc-if>
+  <sc-if value="{{ showSuccess }}">
+    <div role="status" aria-live="polite" style="display:flex;gap:10px;padding:16px;border:1px solid oklch(45% 0.13 150 / 0.4);background:oklch(95% 0.03 150);border-radius:6px">
+      <dc-import name="Icon" icon="check-circle" size="20" color="oklch(35% 0.11 150)" hint-size="20px,20px"></dc-import>
+      <div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;color:oklch(15% 0.006 90);margin-bottom:4px">Mensaje enviado</div><div style="font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(35% 0.01 90)">Te responderemos a {{ email }}.</div></div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ showError }}">
+    <div role="alert" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;gap:10px;padding:16px;border:1px solid oklch(48% 0.19 25 / 0.3);background:oklch(95% 0.035 25);border-radius:6px">
+        <dc-import name="Icon" icon="alert-circle" size="20" color="oklch(38% 0.16 25)" hint-size="20px,20px"></dc-import>
+        <div style="font-family:'Public Sans',sans-serif;font-size:13px;color:oklch(35% 0.01 90)"><b>No pudimos enviar tu mensaje.</b> Intentá de nuevo.</div>
+      </div>
+      <button type="button" onClick="{{ retry }}" style="background:oklch(50% 0.15 250);color:#fff;padding:12px;border:none;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:14px;font-weight:600">Reintentar</button>
+    </div>
+  </sc-if>
+</div>
+
+<dc-import name="SiteFooter" variant="mobile" hint-size="390px,320px"></dc-import>
+</div>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { view: 'form', nombre: '', email: '', asunto: 'Capacitaciones', mensaje: '', touched: false, submitting: false };
+
+  renderVals() {
+    const s = this.state;
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email);
+    const errorNombre = s.touched && s.nombre.trim() === '';
+    const errorEmail = s.touched && !emailValid;
+    const errorMensaje = s.touched && s.mensaje.trim() === '';
+    const borderFor = err => err ? 'oklch(48% 0.19 25)' : 'oklch(82% 0.006 90)';
+
+    return {
+      showForm: s.view === 'form',
+      showLoading: s.view === 'loading',
+      showSuccess: s.view === 'success',
+      showError: s.view === 'error',
+      nombre: s.nombre, setNombre: e => this.setState({ nombre: e.target.value }),
+      email: s.email, setEmail: e => this.setState({ email: e.target.value }),
+      asunto: s.asunto, setAsunto: e => this.setState({ asunto: e.target.value }),
+      mensaje: s.mensaje, setMensaje: e => this.setState({ mensaje: e.target.value }),
+      errorNombre, errorEmail, errorMensaje,
+      nombreDescribedBy: errorNombre ? 'contacto-nombre-desktop-error contacto-nombre-mobile-error' : undefined,
+      emailDescribedBy: errorEmail ? 'contacto-email-desktop-error contacto-email-mobile-error' : undefined,
+      mensajeDescribedBy: errorMensaje ? 'contacto-mensaje-desktop-error contacto-mensaje-mobile-error' : undefined,
+      borderNombre: borderFor(errorNombre), borderEmail: borderFor(errorEmail), borderMensaje: borderFor(errorMensaje),
+      submitDisabled: s.submitting,
+      submitBg: s.submitting ? 'oklch(70% 0.03 250)' : 'oklch(50% 0.15 250)',
+      submitCursor: s.submitting ? 'not-allowed' : 'pointer',
+      handleSubmit: e => {
+        e.preventDefault();
+        if (s.submitting) return;
+        this.setState({ touched: true });
+        const valid = s.nombre.trim() !== '' && emailValid && s.mensaje.trim() !== '';
+        if (!valid) return;
+        this.setState({ view: 'loading', submitting: true });
+        setTimeout(() => {
+          const fail = false;
+          if (fail) { this.setState({ view: 'error', submitting: false }); return; }
+          this.setState({ view: 'success', submitting: false });
+        }, 900);
+      },
+      retry: () => this.setState({ view: 'form', submitting: false })
+    };
+  }
+}
+
+</script>
+</body>
+</html>

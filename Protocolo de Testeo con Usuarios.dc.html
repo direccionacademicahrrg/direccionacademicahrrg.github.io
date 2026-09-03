@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<script src="./doc-page.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Public Sans',sans-serif;color:oklch(15% 0.006 90)}
+h1,h2,h3{font-family:'Source Serif 4',serif;font-weight:700;margin:0 0 8px}
+h1{font-size:26px}
+h2{font-size:19px;margin-top:32px;border-bottom:2px solid oklch(15% 0.006 90);padding-bottom:6px}
+h3{font-size:15px;margin-top:20px;color:oklch(42% 0.13 250)}
+p{font-size:13px;line-height:1.6;color:oklch(35% 0.01 90);margin:0 0 10px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0 16px;break-inside:avoid}
+th,td{border:1px solid oklch(82% 0.006 90);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:oklch(95% 0.004 90);font-weight:700}
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:oklch(95% 0.004 90);color:oklch(35% 0.01 90)}
+.crit{background:oklch(95% 0.035 25);color:oklch(38% 0.16 25)}
+.alto{background:oklch(96% 0.04 85);color:oklch(38% 0.11 75)}
+.medio{background:oklch(95% 0.025 230);color:oklch(38% 0.09 230)}
+.bajo{background:oklch(95% 0.03 150);color:oklch(35% 0.11 150)}
+ul,ol{font-size:13px;line-height:1.6;color:oklch(35% 0.01 90);margin:0 0 10px;padding-left:20px}
+.note{font-size:11px;color:oklch(45% 0.01 90);font-style:italic}
+.script{background:oklch(98% 0.003 90);border-left:3px solid oklch(15% 0.006 90);padding:10px 14px;font-size:13px;line-height:1.6;color:oklch(15% 0.006 90);margin:0 0 12px}
+.script b{display:block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:oklch(45% 0.01 90);margin-bottom:4px}
+</style>
+</helmet>
+
+<doc-page margin="0.85in">
+
+<div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:oklch(45% 0.01 90)">Hospital Regional Río Gallegos · Dirección Académica</div>
+<h1>Protocolo operativo de testeo con usuarios</h1>
+<p>Instrumento de campo para quien modera la sesión. Duración estimada por participante: 25-35 minutos (3 tareas + preguntas). Grabar pantalla y audio con consentimiento previo.</p>
+
+<h2>Guion del moderador — instrucciones iniciales</h2>
+<div class="script"><b>Leer textual al participante, antes de empezar</b>
+"Gracias por tu tiempo. Vamos a mostrarte un prototipo de un portal web y te voy a pedir que hagas algunas tareas como si fuera real. No estamos evaluándote a vos, estamos evaluando el diseño — si algo no se entiende o te cuesta encontrar algo, es información valiosa para nosotros, no un error tuyo. Te voy a pedir que pienses en voz alta mientras navegás: contame qué estás buscando, qué esperás que pase al hacer clic, y qué te genera duda. No te voy a decir dónde hacer clic ni si vas bien o mal — si te trabás completamente, avisame y lo anoto, pero intentá resolverlo vos primero. ¿Alguna pregunta antes de empezar? ¿Está bien si grabamos la pantalla y el audio de esta sesión?"</div>
+<p class="note">Si el participante pregunta "¿voy bien?" durante una tarea, responder solo: "Hacé lo que te parezca más natural" — nunca confirmar ni corregir.</p>
+
+<h2>Tareas exactas — leer sin agregar pistas</h2>
+<table>
+<tr><th>#</th><th>Consigna textual</th></tr>
+<tr><td>1</td><td>"Imaginá que trabajás en el HRRG y querés hacer un curso de reanimación cardiopulmonar. Buscá el curso en el portal e inscribite."</td></tr>
+<tr><td>2</td><td>"Sos estudiante de otra institución y querés hacer una rotación clínica en el HRRG. Iniciá la solicitud."</td></tr>
+<tr><td>3</td><td>"Necesitás el formulario para pedir una rotación. Encontralo usando el buscador del portal."</td></tr>
+</table>
+<p class="note">No repetir la consigna con otras palabras ni aclarar términos ("rotación", "cupos", etc.) aunque el participante pregunte — anotar la duda como hallazgo de microcopy.</p>
+
+<h2>Qué observar en cada paso (guía rápida para el moderador)</h2>
+<table>
+<tr><th>Tarea</th><th>Paso</th><th>Observar</th></tr>
+<tr><td rowspan="3">1</td><td>Entrada</td><td>¿Va a "Formación" en el menú o a un acceso rápido de Home?</td></tr>
+<tr><td>Selección</td><td>¿Confunde Capacitaciones con Formación continua o Ateneos?</td></tr>
+<tr><td>Cierre</td><td>¿Nota el estado de carga? ¿Interpreta bien el mensaje de éxito?</td></tr>
+<tr><td rowspan="3">2</td><td>Entrada</td><td>¿Distingue "Solicitar" de "Consultar solicitud" a primera vista?</td></tr>
+<tr><td>Formulario</td><td>¿En qué campo duda más? ¿Intenta cancelar en algún momento?</td></tr>
+<tr><td>Cierre</td><td>¿Registra o menciona el número de solicitud generado?</td></tr>
+<tr><td rowspan="3">3</td><td>Entrada</td><td>¿Encuentra el buscador sin ayuda? ¿Cuánto tarda en verlo?</td></tr>
+<tr><td>Búsqueda</td><td>¿Escribe una frase propia o usa una sugerencia/chip?</td></tr>
+<tr><td>Resultado</td><td>¿Identifica la etiqueta de tipo de resultado correctamente?</td></tr>
+</table>
+
+<h2>Registro en vivo — tiempo, errores, retrocesos, abandono</h2>
+<p class="note">Completar durante la sesión, una fila por tarea. Cronómetro desde que se termina de leer la consigna.</p>
+<table>
+<tr><th>Tarea</th><th>Hora inicio</th><th>Hora fin</th><th>Tiempo total</th><th>Retrocesos (n°)</th><th>Errores (n°)</th><th>¿Abandonó?</th><th>Notas</th></tr>
+<tr><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Sí / No</td><td>&nbsp;</td></tr>
+<tr><td>2</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Sí / No</td><td>&nbsp;</td></tr>
+<tr><td>3</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Sí / No</td><td>&nbsp;</td></tr>
+</table>
+<p class="note">Retroceso = uso de breadcrumb, botón atrás del navegador, o volver a Inicio antes de completar. Error = clic en un elemento que no produce ningún avance (destino ambiguo, campo vacío enviado, doble clic).</p>
+
+<h2>Escala de facilidad percibida (preguntar después de cada tarea)</h2>
+<div class="script"><b>Leer textual</b>"Del 1 al 5, donde 1 es 'muy difícil' y 5 es 'muy fácil', ¿qué tan fácil te resultó esta tarea?"</div>
+<table>
+<tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+<tr><td>Muy difícil — no lo hubiera logrado sin ayuda</td><td>Difícil — con varios intentos fallidos</td><td>Neutral — lo logré pero con dudas</td><td>Fácil — con alguna duda menor</td><td>Muy fácil — sin ninguna duda</td></tr>
+</table>
+
+<h2>Preguntas post-tarea</h2>
+<div class="script"><b>Leer textual, tras cada tarea</b>
+1. "Del 1 al 5, ¿qué tan fácil te resultó esta tarea?" (registrar en la escala de arriba)<br>
+2. "¿Hubo algún momento en el que no supieras qué hacer? ¿Cuál?"<br>
+3. "¿Esperabas encontrar algo distinto a lo que viste en algún paso?"<br>
+4. "¿Confiaste en que la acción se había completado correctamente al finalizar?"</div>
+
+<h2>Preguntas finales (tras las 3 tareas)</h2>
+<div class="script"><b>Leer textual, al cierre de la sesión</b>
+1. "¿Cómo describirías este portal en tres palabras?"<br>
+2. "¿Sentís que el sitio transmite confianza institucional? ¿Por qué?"<br>
+3. "¿Qué tarea te resultó más difícil de las tres? ¿Por qué?"<br>
+4. "¿Volverías a usar el buscador la próxima vez, o preferirías navegar por menú?"<br>
+5. "¿Hay algo que esperabas encontrar en el portal y no encontraste?"<br>
+6. "¿Recomendarías este portal a un colega? Sí, no, o tal vez — ¿por qué?"</div>
+
+<div style="break-before:page"></div>
+
+<h2>Matriz de hallazgos por severidad</h2>
+<p class="note">Consolidar después de todas las sesiones, un hallazgo por fila. La severidad se define por impacto en la tarea observado, no por cuán fácil sea de corregir.</p>
+<table>
+<tr><th>Severidad</th><th>Definición</th><th>Flujo</th><th>Problema observado</th><th>Participantes afectados</th><th>Corrección propuesta</th></tr>
+<tr><td><span class="tag crit">Crítico</span></td><td>Bloquea la tarea por completo; nadie la completa sin ayuda del moderador</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><span class="tag alto">Alto</span></td><td>Genera abandono o error grave en una parte relevante de los participantes</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><span class="tag medio">Medio</span></td><td>Genera duda o demora perceptible, pero la persona la resuelve sola</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><span class="tag bajo">Bajo</span></td><td>Comentario de preferencia o estética, sin fricción real en la tarea</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+<h2>Criterio para decidir qué corregir antes de pasar a desarrollo</h2>
+<table>
+<tr><th>Severidad</th><th>Regla de decisión</th></tr>
+<tr><td><span class="tag crit">Crítico</span></td><td>Corregir siempre, sin excepción, antes de handoff — bloquea la tarea principal del flujo.</td></tr>
+<tr><td><span class="tag alto">Alto</span></td><td>Corregir antes de handoff si aparece en <b>2 o más participantes</b> (de una ronda de 5). Si aparece en 1 solo, documentar y decidir con el equipo si amerita otra ronda de validación.</td></tr>
+<tr><td><span class="tag medio">Medio</span></td><td>Registrar como mejora post-lanzamiento. Corregir antes de handoff solo si la solución es de bajo costo de implementación.</td></tr>
+<tr><td><span class="tag bajo">Bajo</span></td><td>No bloquea handoff. Queda en backlog de mejora continua.</td></tr>
+</table>
+<p class="note">Regla general: ningún hallazgo Crítico o Alto (con 2+ participantes) pasa a desarrollo sin una corrección de diseño y, si el tiempo lo permite, una segunda validación acotada solo de esa pantalla.</p>
+
+</doc-page>
+
+</x-dc>
+</body>
+</html>

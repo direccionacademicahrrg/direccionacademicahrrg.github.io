@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; } }</style>
+</helmet>
+
+<header style="display:block">
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:60px;background:#fff;border-bottom:1px solid #d0d0d0;border-bottom:1px solid oklch(90% 0.005 90);font-family:'Public Sans',sans-serif">
+  <a href="Home.dc.html" style="text-decoration:none;display:flex;align-items:center;gap:8px;transition:opacity .15s ease" style-hover="opacity:.8">
+    <img src="assets/logo-da.png" alt="Dirección Académica HRRG" style="width:32px;height:32px;border-radius:6px;object-fit:cover;flex:none">
+    <div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;color:#1a1a1a;color:oklch(15% 0.006 90)">HRRG</div>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px">
+    <sc-if value="{{ showSearchIcon }}" hint-placeholder-val="{{ true }}">
+    <a aria-label="Buscar" href="Buscador Global.dc.html" style="width:44px;height:44px;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;transition:background-color .15s ease" style-hover="background:#ececec;background:oklch(95% 0.004 90)"><dc-import name="Icon" icon="search" size="20" color="oklch(15% 0.006 90)" hint-size="20px,20px"></dc-import></a>
+    </sc-if>
+    <a aria-label="WhatsApp" href="https://api.whatsapp.com/send?phone=5492966270210" target="_blank" rel="noopener" style="width:44px;height:44px;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;transition:background-color .15s ease" style-hover="background:#ececec;background:oklch(95% 0.004 90)"><dc-import name="Icon" icon="phone" size="20" color="oklch(15% 0.006 90)" hint-size="20px,20px"></dc-import></a>
+    <button aria-label="Abrir menú" aria-expanded="{{ menuOpenAttr }}" onClick="{{ toggleMenu }}" style="width:44px;height:44px;background:transparent;border:none;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .15s ease" style-hover="background:#ececec;background:oklch(95% 0.004 90)"><dc-import name="Icon" icon="menu" size="22" color="oklch(15% 0.006 90)" hint-size="22px,22px"></dc-import></button>
+  </div>
+</div>
+
+<sc-if value="{{ menuOpen }}">
+  <div role="dialog" aria-modal="true" aria-label="Menú de navegación" style="position:fixed;inset:0;background:#fff;z-index:60;display:flex;flex-direction:column;font-family:'Public Sans',sans-serif">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:60px;border-bottom:1px solid #d0d0d0;border-bottom:1px solid oklch(90% 0.005 90);flex:none">
+      <div style="display:flex;align-items:center;gap:8px">
+        <img src="assets/logo-da.png" alt="Dirección Académica HRRG" style="width:32px;height:32px;border-radius:6px;object-fit:cover">
+        <div style="font-weight:700;font-size:14px;color:#1a1a1a;color:oklch(15% 0.006 90)">HRRG</div>
+      </div>
+      <button ref="{{ closeBtnRef }}" aria-label="Cerrar menú" onClick="{{ closeMenu }}" style="width:44px;height:44px;background:transparent;border:none;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .15s ease" style-hover="background:#ececec;background:oklch(95% 0.004 90)"><dc-import name="Icon" icon="x" size="22" color="oklch(15% 0.006 90)" hint-size="22px,22px"></dc-import></button>
+    </div>
+    <div style="flex:1;overflow-y:auto">
+      <a href="Home.dc.html" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;text-decoration:none;color:#4a4a4a;color:oklch(35% 0.01 90);font-weight:600;font-size:16px;border-bottom:1px solid #ececec;border-bottom:1px solid oklch(95% 0.004 90);transition:background-color .15s ease" style-hover="background:#f7f7f6;background:oklch(98% 0.003 90)">Inicio<dc-import name="Icon" icon="chevron-right" size="16" color="oklch(68% 0.008 90)" hint-size="16px,16px"></dc-import></a>
+      <sc-for list="{{ menuItems }}" as="m" hint-placeholder-count="5">
+        <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;text-decoration:none;color:{{ m.color }};font-weight:600;font-size:16px;border-bottom:1px solid #ececec;border-bottom:1px solid oklch(95% 0.004 90);transition:background-color .15s ease" style-hover="background:#f7f7f6;background:oklch(98% 0.003 90)">{{ m.label }}<dc-import name="Icon" icon="chevron-right" size="16" color="oklch(68% 0.008 90)" hint-size="16px,16px"></dc-import></a>
+      </sc-for>
+    </div>
+    <div style="padding:20px;border-top:1px solid oklch(90% 0.005 90);flex:none">
+      <a href="https://api.whatsapp.com/send?phone=5492966270210" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#3462a8;background:oklch(50% 0.15 250);color:#fff;padding:14px;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:background-color .15s ease" style-hover="background:#2a5490;background:oklch(42% 0.13 250)"><dc-import name="Icon" icon="phone" size="16" color="#fff" hint-size="16px,16px"></dc-import>Escribinos por WhatsApp</a>
+    </div>
+  </div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:0 80px;height:80px;background:#fff;border-bottom:1px solid #d0d0d0;border-bottom:1px solid oklch(90% 0.005 90);font-family:'Public Sans',sans-serif">
+  <a href="Home.dc.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;transition:opacity .15s ease" style-hover="opacity:.85">
+    <img src="assets/logo-da.png" alt="Dirección Académica HRRG" style="width:40px;height:40px;border-radius:6px;object-fit:cover;flex:none">
+    <div>
+      <div style="font-weight:700;font-size:15px;color:#1a1a1a;color:oklch(15% 0.006 90);line-height:1.2">Dirección Académica</div>
+      <div style="font-size:11px;color:#767676;color:oklch(45% 0.01 90);line-height:1.2">Docencia e Investigación · HRRG</div>
+    </div>
+  </a>
+  <nav aria-label="Navegación principal" style="display:flex;gap:36px">
+    <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+      <a href="{{ item.href }}" style="font-size:14px;font-weight:600;letter-spacing:.01em;text-decoration:none;color:{{ item.color }};border-bottom:2px solid {{ item.border }};padding-bottom:28px;transition:color .15s ease,border-color .15s ease" style-hover="color:oklch(42% 0.13 250)">{{ item.label }}</a>
+    </sc-for>
+  </nav>
+  <div style="display:flex;gap:14px;align-items:center">
+    <sc-if value="{{ showSearchIcon }}" hint-placeholder-val="{{ true }}">
+    <a aria-label="Buscar" href="Buscador Global.dc.html" style="width:40px;height:40px;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#4a4a4a;color:oklch(35% 0.01 90);text-decoration:none;transition:background-color .15s ease" style-hover="background:#ececec;background:oklch(95% 0.004 90)"><dc-import name="Icon" icon="search" size="18" color="currentColor" hint-size="18px,18px"></dc-import></a>
+    </sc-if>
+    <a href="https://api.whatsapp.com/send?phone=5492966270210" target="_blank" rel="noopener" style="border:1px solid oklch(82% 0.006 90);color:oklch(35% 0.01 90);padding:9px 16px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:border-color .15s ease,color .15s ease" style-hover="border-color:oklch(50% 0.15 250);color:oklch(42% 0.13 250)">WhatsApp</a>
+  </div>
+</div>
+</sc-if>
+
+
+</header></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:80},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;desktop&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;desktop&quot;,&quot;mobile&quot;]},&quot;activeNav&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;&quot;,&quot;Formación&quot;,&quot;Investigación&quot;,&quot;Recursos&quot;,&quot;Institucional&quot;,&quot;Contacto&quot;]}}">
+class Component extends DCLogic {
+  state = { menuOpen: false };
+  closeBtnRef = React.createRef();
+  componentDidMount() {
+    this._onKeyDown = (e) => {
+      if (e.key === 'Escape' && this.state.menuOpen) this.setState({ menuOpen: false });
+    };
+    document.addEventListener('keydown', this._onKeyDown);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this._onKeyDown);
+  }
+  renderVals() {
+    const isMobile = this.props.variant === 'mobile';
+    const active = this.props.activeNav || '';
+    const labels = ['Formación', 'Investigación', 'Recursos', 'Institucional', 'Contacto'];
+    const hrefs = {
+      'Formación': 'Formación.dc.html',
+      'Investigación': 'Investigación.dc.html',
+      'Recursos': 'Recursos.dc.html',
+      'Institucional': 'Página institucional.dc.html',
+      'Contacto': 'Contacto.dc.html'
+    };
+    const navItems = labels.map(label => {
+      const isActive = label === active;
+      return {
+        label,
+        href: hrefs[label],
+        color: isActive ? 'oklch(42% 0.13 250)' : 'oklch(35% 0.01 90)',
+        border: isActive ? 'oklch(42% 0.13 250)' : 'transparent'
+      };
+    });
+    const menuItems = labels.map(label => ({
+      label,
+      href: hrefs[label],
+      color: label === active ? 'oklch(42% 0.13 250)' : 'oklch(35% 0.01 90)'
+    }));
+    return {
+      isMobile, isDesktop: !isMobile, navItems, menuItems,
+      showSearchIcon: !this.props.hideSearch,
+      menuOpen: this.state.menuOpen,
+      menuOpenAttr: this.state.menuOpen ? 'true' : 'false',
+      closeBtnRef: this.closeBtnRef,
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }, () => {
+        if (this.state.menuOpen && this.closeBtnRef.current) this.closeBtnRef.current.focus();
+      }),
+      closeMenu: () => this.setState({ menuOpen: false })
+    };
+  }
+}
+
+</script>
+</body>
+</html>

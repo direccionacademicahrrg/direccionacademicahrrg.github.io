@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f0eee9;font-family:'Patrick Hand',cursive}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 22px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:700 16px/1.2 'Patrick Hand',cursive;color:#1a1a1a}
+.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 12px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#fdfcfa;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.dv-opt:target .dv-oid{background:#1f6fd6;color:#fff}
+.dv-next{margin:22px 0 0;font:14px/1.5 'Patrick Hand',cursive;color:rgba(0,0,0,.55)}
+.dv-next a{color:#1f6fd6}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t0">
+<div class="dv-thd"><span class="dv-tname">Arquitectura de la información — sitio completo (MVP en color, resto en gris)</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:0">
+  <div style="border:2px solid #1a1a1a;border-radius:6px;background:#fdfcfa;padding:10px 22px;font-size:18px;font-weight:700">Inicio</div>
+  <div style="width:2px;height:20px;background:#1a1a1a"></div>
+  <div style="width:88%;border-top:2px solid #1a1a1a;position:relative"></div>
+  <div style="display:flex;width:88%;justify-content:space-between">
+    <div style="width:2px;height:20px;background:#1a1a1a"></div>
+    <div style="width:2px;height:20px;background:#1a1a1a"></div>
+    <div style="width:2px;height:20px;background:#1a1a1a"></div>
+    <div style="width:2px;height:20px;background:#1a1a1a"></div>
+  </div>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:170px">
+      <div style="border:2px solid #1f6fd6;border-radius:6px;background:#fff;padding:8px 14px;font-weight:700;text-align:center;width:100%;box-sizing:border-box">Capacitaciones</div>
+      <div style="font-size:12px;color:rgba(0,0,0,.55);text-align:center;font-family:system-ui,sans-serif">listado + filtro (modalidad, estado) + detalle</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:170px">
+      <div style="border:2px solid #1f6fd6;border-radius:6px;background:#fff;padding:8px 14px;font-weight:700;text-align:center;width:100%;box-sizing:border-box">Auditorio</div>
+      <div style="font-size:12px;color:rgba(0,0,0,.55);text-align:center;font-family:system-ui,sans-serif">info del espacio + agenda de uso + solicitud</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:170px">
+      <div style="border:2px solid #1f6fd6;border-radius:6px;background:#fff;padding:8px 14px;font-weight:700;text-align:center;width:100%;box-sizing:border-box">Formularios</div>
+      <div style="font-size:12px;color:rgba(0,0,0,.55);text-align:center;font-family:system-ui,sans-serif">agrupados por trámite, cada uno linkea a Drive/Form</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:170px">
+      <div style="border:2px solid #1f6fd6;border-radius:6px;background:#fff;padding:8px 14px;font-weight:700;text-align:center;width:100%;box-sizing:border-box">Investigación en Salud</div>
+      <div style="font-size:12px;color:rgba(0,0,0,.55);text-align:center;font-family:system-ui,sans-serif">líneas de investigación + repositorio/publicaciones</div>
+    </div>
+  </div>
+  <div style="height:26px"></div>
+  <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;max-width:900px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:170px">
+      <div style="border:2px dashed rgba(0,0,0,.4);border-radius:6px;padding:8px 14px;text-align:center;width:100%;box-sizing:border-box;color:rgba(0,0,0,.5)">Contacto</div>
+      <div style="font-size:12px;color:rgba(0,0,0,.45);text-align:center;font-family:system-ui,sans-serif">footer global, no es página — WhatsApp/mail/redes</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:170px">
+      <div style="border:2px dashed rgba(0,0,0,.4);border-radius:6px;padding:8px 14px;text-align:center;width:100%;box-sizing:border-box;color:rgba(0,0,0,.5)">Institucional / Nosotros</div>
+      <div style="font-size:12px;color:rgba(0,0,0,.45);text-align:center;font-family:system-ui,sans-serif">fuera del MVP</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:170px">
+      <div style="border:2px dashed rgba(0,0,0,.4);border-radius:6px;padding:8px 14px;text-align:center;width:100%;box-sizing:border-box;color:rgba(0,0,0,.5)">Novedades (página propia)</div>
+      <div style="font-size:12px;color:rgba(0,0,0,.45);text-align:center;font-family:system-ui,sans-serif">fuera del MVP — Inicio hace de novedades por ahora</div>
+    </div>
+  </div>
+</div>
+<p class="dv-next">Cadena de tareas típica en móvil: Inicio → toco "Capacitaciones" → filtro por vigentes → abro detalle → botón "Inscribirme" sale a Drive/Form. Mismo patrón para Formularios e Investigación.</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Wireframes — Inicio, 3 enfoques (mobile)</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Accesos por tarea primero</div>
+<div class="dv-card" style="width:320px">
+<div style="width:320px;border:3px solid #1a1a1a;border-radius:22px;padding:14px 10px;background:#fdfcfa;box-sizing:border-box">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:2px solid #1a1a1a;margin-bottom:12px">
+    <div style="width:30px;height:30px;border-radius:50%;border:2px solid #1a1a1a;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">DA</div>
+    <div style="width:28px;height:28px;border:2px solid #1a1a1a;border-radius:4px;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:0 5px;box-sizing:border-box">
+      <div style="height:2px;background:#1a1a1a"></div><div style="height:2px;background:#1a1a1a"></div><div style="height:2px;background:#1a1a1a"></div>
+    </div>
+  </div>
+  <div style="font-size:19px;font-weight:700;margin-bottom:4px">Dirección Académica</div>
+  <div style="font-size:12px;color:rgba(0,0,0,.55);font-family:system-ui,sans-serif;margin-bottom:14px">Docencia e Investigación — HRRG</div>
+  <div style="font-size:13px;font-weight:700;margin-bottom:8px">¿Qué necesitás?</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+    <div style="border:2px solid #1f6fd6;border-radius:6px;padding:12px 8px;text-align:center;font-size:12px;font-weight:700;color:#1f6fd6">Capacitaciones</div>
+    <div style="border:2px solid #1f6fd6;border-radius:6px;padding:12px 8px;text-align:center;font-size:12px;font-weight:700;color:#1f6fd6">Auditorio</div>
+    <div style="border:2px solid #1f6fd6;border-radius:6px;padding:12px 8px;text-align:center;font-size:12px;font-weight:700;color:#1f6fd6">Formularios</div>
+    <div style="border:2px solid #1f6fd6;border-radius:6px;padding:12px 8px;text-align:center;font-size:12px;font-weight:700;color:#1f6fd6">Investigación</div>
+  </div>
+  <div style="font-size:13px;font-weight:700;margin-bottom:8px">Novedades</div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="border:1px solid rgba(0,0,0,.4);border-radius:4px;padding:8px;font-size:11px;font-family:system-ui,sans-serif"><b>Inscripción abierta</b> — Curso RCP · 12 ago</div>
+    <div style="border:1px solid rgba(0,0,0,.4);border-radius:4px;padding:8px;font-size:11px;font-family:system-ui,sans-serif"><b>Ateneo</b> — Casuística clínica · 18 ago</div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Novedades primero, tareas en tira</div>
+<div class="dv-card" style="width:320px">
+<div style="width:320px;border:3px solid #1a1a1a;border-radius:22px;padding:14px 10px;background:#fdfcfa;box-sizing:border-box">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:2px solid #1a1a1a;margin-bottom:12px">
+    <div style="width:30px;height:30px;border-radius:50%;border:2px solid #1a1a1a;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">DA</div>
+    <div style="width:28px;height:28px;border:2px solid #1a1a1a;border-radius:4px;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:0 5px;box-sizing:border-box">
+      <div style="height:2px;background:#1a1a1a"></div><div style="height:2px;background:#1a1a1a"></div><div style="height:2px;background:#1a1a1a"></div>
+    </div>
+  </div>
+  <div style="font-size:16px;font-weight:700;margin-bottom:12px">Dirección Académica — HRRG</div>
+  <div style="display:flex;gap:8px;overflow-x:auto;margin-bottom:14px;padding-bottom:2px">
+    <div style="flex:none;width:78px;border:2px solid #1f6fd6;border-radius:6px;padding:8px 4px;text-align:center;font-size:10px;font-weight:700;color:#1f6fd6">Capacitac.</div>
+    <div style="flex:none;width:78px;border:2px solid #1f6fd6;border-radius:6px;padding:8px 4px;text-align:center;font-size:10px;font-weight:700;color:#1f6fd6">Auditorio</div>
+    <div style="flex:none;width:78px;border:2px solid #1f6fd6;border-radius:6px;padding:8px 4px;text-align:center;font-size:10px;font-weight:700;color:#1f6fd6">Formularios</div>
+    <div style="flex:none;width:78px;border:2px solid #1f6fd6;border-radius:6px;padding:8px 4px;text-align:center;font-size:10px;font-weight:700;color:#1f6fd6">Investig.</div>
+  </div>
+  <div style="font-size:13px;font-weight:700;margin-bottom:8px">Novedades</div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="border:1px solid rgba(0,0,0,.4);border-radius:4px;padding:10px;font-size:11px;font-family:system-ui,sans-serif"><span style="background:#1f6fd6;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px">CAPACITACIÓN</span><br><b>Inscripción abierta</b> — Curso RCP · 12 ago</div>
+    <div style="border:1px solid rgba(0,0,0,.4);border-radius:4px;padding:10px;font-size:11px;font-family:system-ui,sans-serif"><span style="background:#1f6fd6;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px">AUDITORIO</span><br><b>Ateneo</b> — Casuística clínica · 18 ago</div>
+    <div style="border:1px solid rgba(0,0,0,.4);border-radius:4px;padding:10px;font-size:11px;font-family:system-ui,sans-serif"><span style="background:#1f6fd6;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px">INVESTIGACIÓN</span><br>Convocatoria a proyectos 2026</div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Selector de público primero</div>
+<div class="dv-card" style="width:320px">
+<div style="width:320px;border:3px solid #1a1a1a;border-radius:22px;padding:14px 10px;background:#fdfcfa;box-sizing:border-box">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:2px solid #1a1a1a;margin-bottom:12px">
+    <div style="width:30px;height:30px;border-radius:50%;border:2px solid #1a1a1a;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">DA</div>
+    <div style="width:28px;height:28px;border:2px solid #1a1a1a;border-radius:4px;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:0 5px;box-sizing:border-box">
+      <div style="height:2px;background:#1a1a1a"></div><div style="height:2px;background:#1a1a1a"></div><div style="height:2px;background:#1a1a1a"></div>
+    </div>
+  </div>
+  <div style="font-size:15px;font-weight:700;margin-bottom:10px">¿Quién sos?</div>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+    <div style="border:2px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;font-weight:700">Residente / Rotante</div>
+    <div style="border:2px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;font-weight:700">Equipo de salud del HRRG</div>
+    <div style="border:2px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;font-weight:700">Investigador / Docente</div>
+    <div style="border:2px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;font-weight:700">Institución externa</div>
+  </div>
+  <div style="font-size:11px;color:rgba(0,0,0,.5);text-align:center;margin-bottom:12px;font-family:system-ui,sans-serif">— o explorá directo —</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+    <div style="border:1px solid #1f6fd6;border-radius:5px;padding:7px;text-align:center;font-size:10px;color:#1f6fd6">Capacitaciones</div>
+    <div style="border:1px solid #1f6fd6;border-radius:5px;padding:7px;text-align:center;font-size:10px;color:#1f6fd6">Auditorio</div>
+    <div style="border:1px solid #1f6fd6;border-radius:5px;padding:7px;text-align:center;font-size:10px;color:#1f6fd6">Formularios</div>
+    <div style="border:1px solid #1f6fd6;border-radius:5px;padding:7px;text-align:center;font-size:10px;color:#1f6fd6">Investigación</div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Riesgo de <a class="dv-oid" href="#1c">1c</a>: agrega un paso antes de la tarea — solo vale la pena si el contenido cambia según el rol. Probá: "combiná el grid de <a class="dv-oid" href="#1a">1a</a> con las novedades de <a class="dv-oid" href="#1b">1b</a>" · "elegí una y seguimos a las páginas secundarias".</p>
+</section>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Wireframes — páginas secundarias (patrón compartido, mobile)</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="2a">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Capacitaciones — listado con filtro</div>
+<div class="dv-card" style="width:320px">
+<div style="width:320px;border:3px solid #1a1a1a;border-radius:22px;padding:14px 10px;background:#fdfcfa;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:2px solid #1a1a1a;margin-bottom:12px">
+    <div style="font-size:16px">←</div>
+    <div style="font-size:16px;font-weight:700">Capacitaciones</div>
+  </div>
+  <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
+    <div style="border:1px solid #1a1a1a;border-radius:14px;padding:4px 10px;font-size:10px">Modalidad ▾</div>
+    <div style="border:1px solid #1a1a1a;border-radius:14px;padding:4px 10px;font-size:10px">Vigentes ▾</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:10px;display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-size:12px;font-weight:700">Curso de RCP básica</div><div style="font-size:10px;color:rgba(0,0,0,.55);font-family:system-ui,sans-serif">Presencial · abre 12 ago · <span style="color:#1f6fd6">Vigente</span></div></div>
+      <div style="font-size:14px">›</div>
+    </div>
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:10px;display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-size:12px;font-weight:700">Bioseguridad hospitalaria</div><div style="font-size:10px;color:rgba(0,0,0,.55);font-family:system-ui,sans-serif">Virtual · cierra 30 ago</div></div>
+      <div style="font-size:14px">›</div>
+    </div>
+    <div style="border:1px solid rgba(0,0,0,.35);border-radius:6px;padding:10px;display:flex;justify-content:space-between;align-items:center;opacity:.55">
+      <div><div style="font-size:12px;font-weight:700">Manejo del dolor</div><div style="font-size:10px;color:rgba(0,0,0,.55);font-family:system-ui,sans-serif">Cerrada</div></div>
+      <div style="font-size:14px">›</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2b">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Formularios — agrupados por trámite</div>
+<div class="dv-card" style="width:320px">
+<div style="width:320px;border:3px solid #1a1a1a;border-radius:22px;padding:14px 10px;background:#fdfcfa;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:2px solid #1a1a1a;margin-bottom:12px">
+    <div style="font-size:16px">←</div>
+    <div style="font-size:16px;font-weight:700">Formularios</div>
+  </div>
+  <div style="font-size:12px;font-weight:700;color:#1f6fd6;margin-bottom:6px">Rotaciones y visitas</div>
+  <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px">
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:9px;font-size:11px;display:flex;justify-content:space-between"><span>Solicitud de rotación</span><span style="color:rgba(0,0,0,.5)">↗ Drive</span></div>
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:9px;font-size:11px;display:flex;justify-content:space-between"><span>Visita autorizada</span><span style="color:rgba(0,0,0,.5)">↗ Form</span></div>
+  </div>
+  <div style="font-size:12px;font-weight:700;color:#1f6fd6;margin-bottom:6px">Residencias</div>
+  <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px">
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:9px;font-size:11px;display:flex;justify-content:space-between"><span>Inscripción a residencia</span><span style="color:rgba(0,0,0,.5)">↗ Drive</span></div>
+  </div>
+  <div style="font-size:12px;font-weight:700;color:#1f6fd6;margin-bottom:6px">Investigación</div>
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:9px;font-size:11px;display:flex;justify-content:space-between"><span>Presentación de proyecto</span><span style="color:rgba(0,0,0,.5)">↗ Drive</span></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2c">
+<div class="dv-olabel"><a class="dv-oid" href="#2c">2c</a>Auditorio — info + agenda + solicitud</div>
+<div class="dv-card" style="width:320px">
+<div style="width:320px;border:3px solid #1a1a1a;border-radius:22px;padding:14px 10px;background:#fdfcfa;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:2px solid #1a1a1a;margin-bottom:12px">
+    <div style="font-size:16px">←</div>
+    <div style="font-size:16px;font-weight:700">Auditorio</div>
+  </div>
+  <div style="border:2px dashed rgba(0,0,0,.4);border-radius:6px;height:90px;display:flex;align-items:center;justify-content:center;color:rgba(0,0,0,.45);font-size:12px;margin-bottom:10px;font-family:system-ui,sans-serif">foto del auditorio</div>
+  <div style="font-size:11px;color:rgba(0,0,0,.6);margin-bottom:12px;font-family:system-ui,sans-serif">Capacidad 80 personas · equipamiento audiovisual · planta baja, sector docencia.</div>
+  <div style="font-size:12px;font-weight:700;margin-bottom:6px">Agenda de uso</div>
+  <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:8px;font-size:11px;font-family:system-ui,sans-serif">18 ago · 10:00 — Ateneo Clínica Médica</div>
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:8px;font-size:11px;font-family:system-ui,sans-serif">22 ago · 14:00 — Curso RCP</div>
+  </div>
+  <div style="background:#1f6fd6;color:#fff;text-align:center;border-radius:6px;padding:10px;font-size:12px;font-weight:700">Solicitar uso del auditorio</div>
+</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2d">
+<div class="dv-olabel"><a class="dv-oid" href="#2d">2d</a>Investigación en Salud</div>
+<div class="dv-card" style="width:320px">
+<div style="width:320px;border:3px solid #1a1a1a;border-radius:22px;padding:14px 10px;background:#fdfcfa;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:2px solid #1a1a1a;margin-bottom:12px">
+    <div style="font-size:16px">←</div>
+    <div style="font-size:16px;font-weight:700">Investigación en Salud</div>
+  </div>
+  <div style="font-size:11px;color:rgba(0,0,0,.6);margin-bottom:12px;font-family:system-ui,sans-serif">Cómo presentar un proyecto, comité de ética, líneas activas del hospital.</div>
+  <div style="font-size:12px;font-weight:700;margin-bottom:6px">Líneas de investigación</div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+    <div style="border:1px solid #1f6fd6;color:#1f6fd6;border-radius:14px;padding:4px 10px;font-size:10px">Salud pública</div>
+    <div style="border:1px solid #1f6fd6;color:#1f6fd6;border-radius:14px;padding:4px 10px;font-size:10px">Clínica</div>
+    <div style="border:1px solid #1f6fd6;color:#1f6fd6;border-radius:14px;padding:4px 10px;font-size:10px">Epidemiología</div>
+  </div>
+  <div style="font-size:12px;font-weight:700;margin-bottom:6px">Repositorio / publicaciones</div>
+  <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:8px;font-size:11px;font-family:system-ui,sans-serif">2025 — Prevalencia de HTA en Santa Cruz</div>
+    <div style="border:1px solid rgba(0,0,0,.5);border-radius:6px;padding:8px;font-size:11px;font-family:system-ui,sans-serif">2024 — Adherencia a guías de reanimación</div>
+  </div>
+  <div style="background:#1f6fd6;color:#fff;text-align:center;border-radius:6px;padding:10px;font-size:12px;font-weight:700">Presentar un proyecto</div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Todas comparten header con volver + título, listas con estado/meta visible, y CTA único al final. Probá: "sumá estado vacío a <a class="dv-oid" href="#2a">2a</a>" · "elegí un enfoque de Inicio y armamos el flujo completo de una tarea".</p>
+</section>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<script src="./doc-page.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Public Sans',sans-serif;color:oklch(15% 0.006 90)}
+h1,h2,h3{font-family:'Source Serif 4',serif;font-weight:700;margin:0 0 8px}
+h1{font-size:26px}
+h2{font-size:19px;margin-top:32px;border-bottom:2px solid oklch(15% 0.006 90);padding-bottom:6px}
+h3{font-size:15px;margin-top:20px;color:oklch(42% 0.13 250)}
+p{font-size:13px;line-height:1.6;color:oklch(35% 0.01 90);margin:0 0 10px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0 16px;break-inside:avoid}
+th,td{border:1px solid oklch(82% 0.006 90);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:oklch(95% 0.004 90);font-weight:700}
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:oklch(95% 0.004 90);color:oklch(35% 0.01 90)}
+.crit{background:oklch(95% 0.035 25);color:oklch(38% 0.16 25)}
+.alto{background:oklch(96% 0.04 85);color:oklch(38% 0.11 75)}
+.medio{background:oklch(95% 0.025 230);color:oklch(38% 0.09 230)}
+.bajo{background:oklch(95% 0.03 150);color:oklch(35% 0.11 150)}
+ul,ol{font-size:13px;line-height:1.6;color:oklch(35% 0.01 90);margin:0 0 10px;padding-left:20px}
+.note{font-size:11px;color:oklch(45% 0.01 90);font-style:italic}
+</style>
+</helmet>
+
+<doc-page margin="0.85in">
+
+<div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:oklch(45% 0.01 90)">Hospital Regional Río Gallegos · Dirección Académica</div>
+<h1>Plan de test de usabilidad — Prototipo navegable</h1>
+<p>3 participantes recomendados por ronda mínima (5 idealmente). Moderación semi-estructurada, think-aloud. El moderador no indica dónde hacer clic ni confirma si un paso es correcto durante la tarea — solo interviene si el participante queda completamente bloqueado (más de 2 minutos sin avance) y lo registra como abandono asistido.</p>
+
+<h2>Flujo 1 — Inicio → Capacitación → Inscripción</h2>
+<p><b>Objetivo:</b> validar si una persona puede encontrar una capacitación relevante y completar su inscripción sin ayuda externa.</p>
+<p><b>Tarea para el participante:</b> "Imaginá que trabajás en el HRRG y querés hacer un curso de reanimación cardiopulmonar. Buscá el curso en el portal e inscribite."</p>
+<p><b>Criterio de éxito:</b> el participante llega a la pantalla de confirmación de inscripción sin intervención del moderador.</p>
+<p><b>Puntos de observación:</b></p>
+<ul>
+<li>¿Entra por Formación o por el acceso rápido de Home?</li>
+<li>¿Duda entre Capacitaciones y Formación continua?</li>
+<li>¿Lee la información de cupos/fecha antes de inscribirse, o hace clic de inmediato?</li>
+<li>¿Nota el estado de carga al confirmar la inscripción?</li>
+<li>¿Interpreta correctamente el mensaje de éxito?</li>
+</ul>
+<p><b>Errores esperables:</b> confundir "Formación" (categoría) con "Formación continua" (subsección); no encontrar el curso por nombre exacto y abandonar la búsqueda por texto; no notar el botón "Inscribirme" por estar en una columna lateral.</p>
+
+<h2>Flujo 2 — Inicio → Rotaciones → Solicitud</h2>
+<p><b>Objetivo:</b> validar si una persona externa puede identificar y completar el formulario de solicitud de rotación.</p>
+<p><b>Tarea para el participante:</b> "Sos estudiante de otra institución y querés hacer una rotación clínica en el HRRG. Iniciá la solicitud."</p>
+<p><b>Criterio de éxito:</b> el participante envía el formulario y llega a la pantalla con el número de solicitud generado.</p>
+<p><b>Puntos de observación:</b></p>
+<ul>
+<li>¿Distingue "Solicitar rotación" de "Consultar solicitud" sin confundirlos?</li>
+<li>¿Revisa los requisitos antes de completar el formulario?</li>
+<li>¿Duda en algún campo del formulario (tipo de rotación, institución de origen)?</li>
+<li>¿Nota y usa la opción de cancelar si decide no continuar?</li>
+<li>¿Guarda o recuerda el número de solicitud generado al finalizar?</li>
+</ul>
+<p><b>Errores esperables:</b> intentar "consultar" antes de haber solicitado; abandonar el formulario por extensión percibida; no registrar el número de solicitud.</p>
+
+<h2>Flujo 3 — Inicio → Buscador → Documento</h2>
+<p><b>Objetivo:</b> validar si el buscador global permite encontrar y abrir un documento específico sin navegar por menús.</p>
+<p><b>Tarea para el participante:</b> "Necesitás el formulario para pedir una rotación. Encontralo usando el buscador del portal."</p>
+<p><b>Criterio de éxito:</b> el participante abre la ficha del documento correcto desde un resultado de búsqueda.</p>
+<p><b>Puntos de observación:</b></p>
+<ul>
+<li>¿Encuentra el ícono/campo de búsqueda sin indicación previa?</li>
+<li>¿Qué términos escribe primero (propios vs. sugeridos)?</li>
+<li>¿Usa alguna de las sugerencias/chips en vez de escribir?</li>
+<li>¿Interpreta correctamente la etiqueta de tipo de resultado (Formulario/Documento/Capacitación)?</li>
+<li>¿Qué hace ante cero resultados, si le ocurre?</li>
+</ul>
+<p><b>Errores esperables:</b> escribir una frase muy específica que no matchea; no encontrar el ícono de búsqueda; confundir un resultado de "Capacitación" con el documento buscado.</p>
+
+<h2>Métricas a registrar (por tarea y por participante)</h2>
+<table>
+<tr><th>Métrica</th><th>Cómo registrarla</th></tr>
+<tr><td>Tasa de éxito</td><td>Completa sin ayuda / completa con ayuda mínima / abandona</td></tr>
+<tr><td>Tiempo por tarea</td><td>Desde que se lee la consigna hasta la pantalla de éxito (mm:ss)</td></tr>
+<tr><td>Retrocesos</td><td>Cantidad de veces que usa breadcrumb, "atrás" del navegador o vuelve a Inicio antes de completar</td></tr>
+<tr><td>Abandonos</td><td>Sí/No — y en qué pantalla exacta ocurrió</td></tr>
+<tr><td>Errores</td><td>Cantidad de clics en elementos que no llevan a ningún avance (destinos ambiguos, dobles clics, campos vacíos enviados)</td></tr>
+</table>
+
+<h2>Preguntas posteriores a cada tarea</h2>
+<ol>
+<li>Del 1 al 5, ¿qué tan fácil te resultó esta tarea?</li>
+<li>¿Hubo algún momento en el que no supieras qué hacer? ¿Cuál?</li>
+<li>¿Esperabas encontrar algo distinto a lo que viste en algún paso?</li>
+<li>¿Confiaste en que la acción se había completado correctamente al finalizar?</li>
+</ol>
+
+<h2>Preguntas finales de percepción (tras las 3 tareas)</h2>
+<ol>
+<li>¿Cómo describirías este portal en tres palabras?</li>
+<li>¿Sentís que el sitio transmite confianza institucional? ¿Por qué?</li>
+<li>¿Qué tarea te resultó más difícil de las tres? ¿Por qué?</li>
+<li>¿Volverías a usar el buscador la próxima vez, o preferirías navegar por menú?</li>
+<li>¿Hay algo que esperabas encontrar en el portal y no encontraste?</li>
+<li>¿Recomendarías este portal a un colega? (Sí / No / Tal vez) — ¿por qué?</li>
+</ol>
+
+<div style="break-before:page"></div>
+
+<h2>Plantilla de registro por usuario</h2>
+<table>
+<tr><th colspan="2">Datos del participante</th></tr>
+<tr><td>Nombre / ID</td><td>&nbsp;</td></tr>
+<tr><td>Perfil (residente / rotante / docente / personal / externo)</td><td>&nbsp;</td></tr>
+<tr><td>Fecha</td><td>&nbsp;</td></tr>
+<tr><td>Dispositivo (desktop / mobile)</td><td>&nbsp;</td></tr>
+</table>
+
+<table>
+<tr><th>Flujo</th><th>Éxito<br><span class="note">sin ayuda / con ayuda / abandono</span></th><th>Tiempo</th><th>Retrocesos</th><th>Errores</th><th>Observaciones cualitativas</th></tr>
+<tr><td>1. Capacitación → Inscripción</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>2. Rotaciones → Solicitud</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>3. Buscador → Documento</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+<table>
+<tr><th colspan="2">Respuestas post-tarea (resumen por flujo)</th></tr>
+<tr><td>Facilidad percibida (1-5) — Flujo 1 / 2 / 3</td><td>&nbsp;</td></tr>
+<tr><td>Momentos de duda reportados</td><td>&nbsp;</td></tr>
+<tr><td>Expectativas no cumplidas</td><td>&nbsp;</td></tr>
+</table>
+
+<table>
+<tr><th colspan="2">Percepción final</th></tr>
+<tr><td>Tres palabras para describir el portal</td><td>&nbsp;</td></tr>
+<tr><td>¿Transmite confianza institucional?</td><td>&nbsp;</td></tr>
+<tr><td>Tarea más difícil</td><td>&nbsp;</td></tr>
+<tr><td>¿Recomendaría el portal?</td><td>&nbsp;</td></tr>
+<tr><td>Comentarios libres</td><td>&nbsp;</td></tr>
+</table>
+
+<div style="break-before:page"></div>
+
+<h2>Matriz final de problemas (a completar tras la ronda de testeo)</h2>
+<p class="note">Consolidar un hallazgo por fila una vez procesadas todas las sesiones. Clasificar por severidad según impacto en la tarea, no por facilidad de arreglo.</p>
+<table>
+<tr><th>Severidad</th><th>Flujo</th><th>Problema observado</th><th>Cuántos participantes lo tuvieron</th><th>Impacto</th><th>Corrección propuesta</th></tr>
+<tr><td><span class="tag crit">Crítico</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Bloquea la tarea, no hay forma de continuar sin ayuda</td><td>&nbsp;</td></tr>
+<tr><td><span class="tag alto">Alto</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Genera error o abandono en parte de los participantes</td><td>&nbsp;</td></tr>
+<tr><td><span class="tag medio">Medio</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Genera duda o demora, pero se resuelve solo</td><td>&nbsp;</td></tr>
+<tr><td><span class="tag bajo">Bajo</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Comentario estético o de preferencia, sin fricción real</td><td>&nbsp;</td></tr>
+</table>
+<p class="note">Agregar filas según la cantidad de hallazgos reales de la ronda.</p>
+
+</doc-page>
+
+</x-dc>
+</body>
+</html>

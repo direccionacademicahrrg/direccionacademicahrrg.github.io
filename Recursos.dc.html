@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recursos | Dirección Académica HRRG</title>
+<meta name="description" content="Formularios, documentos y protocolos del Hospital Regional Río Gallegos.">
+<meta property="og:title" content="Recursos | Dirección Académica HRRG">
+<meta property="og:description" content="Formularios, documentos y protocolos del Hospital Regional Río Gallegos.">
+<meta property="og:type" content="website">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f2f2f0;font-family:'Public Sans',sans-serif} a{color:oklch(42% 0.13 250);text-decoration:underline} a:hover{color:oklch(34% 0.11 250)}</style>
+</helmet>
+
+<div style="padding:40px;display:flex;flex-direction:column;gap:56px">
+
+<!-- ========== DESKTOP ========== -->
+<div data-screen-label="Recursos — Desktop">
+<div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:oklch(45% 0.01 90);margin-bottom:10px;font-family:'Public Sans',sans-serif">Recursos — Desktop (1440px)</div>
+<div style="width:1440px;background:#fff;background-image:radial-gradient(circle,oklch(20% 0.02 250 / 0.05) 1px,transparent 1.2px);background-size:18px 18px">
+
+<dc-import name="SiteHeader" variant="desktop" active-nav="Recursos" hint-size="1440px,80px"></dc-import>
+
+<div style="padding:20px 80px 0;display:flex;align-items:center;gap:8px;font-family:'Public Sans',sans-serif;font-size:13px">
+  <a href="Home.dc.html">Inicio</a><span style="color:oklch(68% 0.008 90)">›</span><span style="color:oklch(15% 0.006 90)" aria-current="page">Recursos</span>
+</div>
+
+<div style="padding:24px 80px 0;max-width:760px">
+  <h1 style="margin:0 0 14px;font-family:'Source Serif 4',serif;font-weight:700;font-size:42px;letter-spacing:-.01em;color:oklch(15% 0.006 90)">Recursos</h1>
+  <div style="font-family:'Public Sans',sans-serif;font-size:16px;line-height:1.6;color:oklch(35% 0.01 90)">Formularios, documentos, protocolos y normativas de uso frecuente para el equipo de salud y la comunidad académica del HRRG.</div>
+</div>
+
+<!-- Categorías -->
+<div role="tablist" aria-label="Categorías de recursos" style="padding:28px 80px 0;border-bottom:1px solid oklch(90% 0.005 90);display:flex;gap:32px;flex-wrap:wrap">
+  <sc-for list="{{ categories }}" as="c" hint-placeholder-count="7">
+    <button type="button" role="tab" aria-selected="{{ c.selected }}" onClick="{{ c.onClick }}" style="padding:0 0 16px;cursor:pointer;font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;color:{{ c.color }};border:none;border-bottom:2px solid {{ c.border }};background:transparent;border-radius:0">{{ c.label }}</button>
+  </sc-for>
+</div>
+
+<!-- Buscador + orden -->
+<div style="padding:24px 80px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+  <div style="display:flex;align-items:center;gap:10px;width:380px;height:44px;padding:0 14px;border:1px solid oklch(82% 0.006 90);border-radius:6px">
+    <dc-import name="Icon" icon="search" size="18" color="oklch(45% 0.01 90)" hint-size="18px,18px"></dc-import>
+    <input placeholder="Buscar por nombre, área o palabra clave…" aria-label="Buscar recursos" style="border:none;outline:none;flex:1;font-family:'Public Sans',sans-serif;font-size:14px;color:oklch(15% 0.006 90)"></input>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button type="button" aria-haspopup="listbox" style="display:flex;align-items:center;gap:6px;border:1px solid oklch(82% 0.006 90);background:#fff;color:oklch(35% 0.01 90);padding:9px 14px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:13px;cursor:pointer">Área: Todas<dc-import name="Icon" icon="chevron-down" size="14" color="oklch(45% 0.01 90)" hint-size="14px,14px"></dc-import></button>
+    <button type="button" aria-haspopup="listbox" style="display:flex;align-items:center;gap:6px;border:1px solid oklch(82% 0.006 90);background:#fff;color:oklch(35% 0.01 90);padding:9px 14px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:13px;cursor:pointer">Ordenar: Más recientes<dc-import name="Icon" icon="chevron-down" size="14" color="oklch(45% 0.01 90)" hint-size="14px,14px"></dc-import></button>
+  </div>
+</div>
+
+<div style="padding:44px 80px 88px">
+  <div role="status" aria-live="polite" style="font-family:'Public Sans',sans-serif;font-size:14px;color:oklch(45% 0.01 90);margin-bottom:16px">{{ resultsCount }} recursos</div>
+
+  <div style="border:1px solid oklch(90% 0.005 90);border-top:3px solid oklch(45% 0.09 85);border-radius:6px;overflow:hidden">
+    <div style="display:flex;background:oklch(95% 0.004 90);font-family:'Public Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.03em;color:oklch(45% 0.01 90)">
+      <div style="flex:2;padding:12px 20px">DOCUMENTO</div>
+      <div style="width:130px;padding:12px 0">CATEGORÍA</div>
+      <div style="width:150px;padding:12px 0">ÁREA</div>
+      <div style="width:100px;padding:12px 0">FECHA</div>
+      <div style="width:90px;padding:12px 0">VERSIÓN</div>
+      <div style="width:150px;padding:12px 0 12px 20px">ACCIONES</div>
+    </div>
+    <sc-for list="{{ items }}" as="it" hint-placeholder-count="8">
+      <div style="display:flex;align-items:center;border-top:1px solid oklch(90% 0.005 90)" style-hover="background:oklch(98% 0.003 90)">
+        <div style="flex:2;padding:16px 20px;display:flex;gap:12px;align-items:flex-start">
+          <dc-import name="Icon" icon="file-text" size="20" color="oklch(42% 0.13 250)" hint-size="20px,20px"></dc-import>
+          <div><div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;color:oklch(15% 0.006 90)">{{ it.title }}</div><div style="font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(45% 0.01 90);margin-top:2px">{{ it.description }}</div></div>
+        </div>
+        <div style="width:130px;padding:16px 0"><span style="background:oklch(95% 0.004 90);color:oklch(35% 0.01 90);padding:2px 10px;border-radius:999px;font-family:'Public Sans',sans-serif;font-size:11px;font-weight:600">{{ it.category }}</span></div>
+        <div style="width:150px;padding:16px 0;font-family:'Public Sans',sans-serif;font-size:13px;color:oklch(35% 0.01 90)">{{ it.area }}</div>
+        <div style="width:100px;padding:16px 0;font-family:'Public Sans',sans-serif;font-size:13px;color:oklch(35% 0.01 90)">{{ it.date }}</div>
+        <div style="width:90px;padding:16px 0;font-family:'Public Sans',sans-serif;font-size:13px;color:oklch(35% 0.01 90)">{{ it.version }}</div>
+        <div style="width:150px;padding:16px 0 16px 20px;display:flex;align-items:center;gap:14px">
+          <a href="{{ it.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:4px;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;transition:transform .15s ease" style-hover="transform:translateX(3px)" style-focus="transform:translateX(3px)">Abrir<sc-if value="{{ it.external }}"><dc-import name="Icon" icon="external-link" size="12" color="oklch(42% 0.13 250)" hint-size="12px,12px"></dc-import></sc-if></a>
+          <button aria-label="Descargar" style="width:32px;height:32px;border:none;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:oklch(95% 0.004 90)"><dc-import name="Icon" icon="download" size="16" color="oklch(45% 0.01 90)" hint-size="16px,16px"></dc-import></button>
+          <span style="font-family:'Public Sans',sans-serif;font-size:11px;color:oklch(68% 0.008 90)">{{ it.metaText }}</span>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<dc-import name="SiteFooter" variant="desktop" hint-size="1440px,320px"></dc-import>
+
+</div>
+</div>
+
+<!-- ========== MOBILE ========== -->
+<div data-screen-label="Recursos — Mobile">
+<div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:oklch(45% 0.01 90);margin-bottom:10px;font-family:'Public Sans',sans-serif">Recursos — Mobile (390px)</div>
+<div style="width:390px;background:#fff;background-image:radial-gradient(circle,oklch(20% 0.02 250 / 0.05) 1px,transparent 1.2px);background-size:18px 18px">
+
+<dc-import name="SiteHeader" variant="mobile" active-nav="Recursos" hint-size="390px,60px"></dc-import>
+
+<div style="padding:14px 20px 0;display:flex;align-items:center;gap:8px;font-family:'Public Sans',sans-serif;font-size:13px">
+  <dc-import name="Icon" icon="chevron-left" size="14" color="oklch(42% 0.13 250)" hint-size="14px,14px"></dc-import><a href="Home.dc.html" style="text-decoration:none">Inicio</a>
+</div>
+
+<div style="padding:14px 20px 0">
+  <h2 style="margin:0 0 10px;font-family:'Source Serif 4',serif;font-weight:700;font-size:26px;letter-spacing:-.015em;color:oklch(15% 0.006 90)">Recursos</h2>
+  <div style="font-family:'Public Sans',sans-serif;font-size:14px;line-height:1.55;color:oklch(35% 0.01 90)">Formularios, documentos, protocolos y normativas del HRRG.</div>
+</div>
+
+<div role="tablist" aria-label="Categorías de recursos" style="padding:0 0 14px 20px;border-bottom:1px solid oklch(90% 0.005 90);margin-top:16px;display:flex;gap:22px;overflow-x:auto">
+  <sc-for list="{{ categories }}" as="c" hint-placeholder-count="7">
+    <button type="button" role="tab" aria-selected="{{ c.selected }}" onClick="{{ c.onClick }}" style="padding:0 0 12px;cursor:pointer;font-family:'Public Sans',sans-serif;font-size:14px;font-weight:600;color:{{ c.color }};border:none;border-bottom:2px solid {{ c.border }};background:transparent;border-radius:0;flex:none;white-space:nowrap">{{ c.label }}</button>
+  </sc-for>
+</div>
+
+<div style="padding:16px 20px 0">
+  <div style="display:flex;align-items:center;gap:10px;height:46px;padding:0 14px;border:1px solid oklch(82% 0.006 90);border-radius:6px;margin-bottom:12px">
+    <dc-import name="Icon" icon="search" size="18" color="oklch(45% 0.01 90)" hint-size="18px,18px"></dc-import>
+    <span style="font-family:'Public Sans',sans-serif;font-size:14px;color:oklch(68% 0.008 90)">Buscar recurso…</span>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:14px">
+    <button type="button" aria-haspopup="listbox" style="display:flex;align-items:center;gap:6px;border:1px solid oklch(82% 0.006 90);background:#fff;color:oklch(35% 0.01 90);padding:10px 12px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:12px;min-height:44px">Área<dc-import name="Icon" icon="chevron-down" size="13" color="oklch(45% 0.01 90)" hint-size="13px,13px"></dc-import></button>
+    <button type="button" aria-haspopup="listbox" style="display:flex;align-items:center;gap:6px;border:1px solid oklch(82% 0.006 90);background:#fff;color:oklch(35% 0.01 90);padding:10px 12px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:12px;min-height:44px">Ordenar<dc-import name="Icon" icon="chevron-down" size="13" color="oklch(45% 0.01 90)" hint-size="13px,13px"></dc-import></button>
+  </div>
+</div>
+
+<div style="padding:0 20px 40px">
+  <div role="status" aria-live="polite" style="font-family:'Public Sans',sans-serif;font-size:13px;color:oklch(45% 0.01 90);margin-bottom:12px">{{ resultsCount }} recursos</div>
+  <div style="display:flex;flex-direction:column;border:1px solid oklch(90% 0.005 90);border-top:3px solid oklch(45% 0.09 85);border-radius:6px;overflow:hidden">
+    <sc-for list="{{ items }}" as="it" hint-placeholder-count="8">
+      <div style="padding:16px;border-bottom:1px solid oklch(90% 0.005 90)">
+        <div style="display:flex;gap:10px;margin-bottom:8px">
+          <dc-import name="Icon" icon="file-text" size="18" color="oklch(42% 0.13 250)" hint-size="18px,18px"></dc-import>
+          <span style="background:oklch(95% 0.004 90);color:oklch(35% 0.01 90);padding:2px 10px;border-radius:999px;font-family:'Public Sans',sans-serif;font-size:11px;font-weight:600">{{ it.category }}</span>
+        </div>
+        <div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;color:oklch(15% 0.006 90);margin-bottom:4px">{{ it.title }}</div>
+        <div style="font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(45% 0.01 90);margin-bottom:6px">{{ it.description }}</div>
+        <div style="font-family:'Public Sans',sans-serif;font-size:11px;color:oklch(68% 0.008 90);margin-bottom:10px">{{ it.area }} · {{ it.date }} · {{ it.metaText }}</div>
+        <div style="display:flex;gap:16px;align-items:center">
+          <a href="{{ it.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:4px;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;transition:transform .15s ease" style-hover="transform:translateX(3px)" style-focus="transform:translateX(3px)">Abrir<sc-if value="{{ it.external }}"><dc-import name="Icon" icon="external-link" size="12" color="oklch(42% 0.13 250)" hint-size="12px,12px"></dc-import></sc-if></a>
+          <span style="display:flex;align-items:center;gap:5px;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;color:oklch(35% 0.01 90)"><dc-import name="Icon" icon="download" size="14" color="oklch(35% 0.01 90)" hint-size="14px,14px"></dc-import>Descargar</span>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<dc-import name="SiteFooter" variant="mobile" hint-size="390px,320px"></dc-import>
+
+</div>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { activeCategory: 'Todas' };
+
+  data = [
+    { title: 'Formulario de solicitud de rotación', description: 'Para iniciar una solicitud de rotación clínica o de especialidad.', category: 'Formularios', area: 'Rotaciones', date: '06/2026', version: '2.0', type: 'PDF', size: '180 KB', url: 'https://drive.google.com/drive/folders/1Y85DRHrfFwkG-LV7Db0V624qX1mTOYfR?usp=sharing' },
+    { title: 'Formulario de inscripción a residencia', description: 'Inscripción a la convocatoria anual de residencias médicas.', category: 'Formularios', area: 'Residencias', date: '05/2026', version: '1.3', type: 'PDF', size: '210 KB', url: 'https://drive.google.com/drive/folders/1Y85DRHrfFwkG-LV7Db0V624qX1mTOYfR?usp=sharing' },
+    { title: 'Guía para la Presentación de Proyectos de Investigación', description: 'Requisitos, plazos y formato para presentar un proyecto.', category: 'Documentos', area: 'Investigación', date: '01/2026', version: '3.0', type: 'PDF', size: '540 KB', url: 'https://drive.google.com/drive/folders/1y2eFFiG8gSy72CSWOzwD5FTWANCfZQFc' },
+    { title: 'Guía del Rotante', description: 'Orientación general para quienes inician una rotación en el HRRG.', category: 'Documentos', area: 'Rotaciones', date: '06/2026', version: '—', type: 'Carpeta', size: '', url: 'https://drive.google.com/drive/folders/1cJ-IOMUGhqwgrQ0qVMu2szmPX2E4XwLX?usp=sharing' },
+    { title: 'Protocolo de Bioseguridad Hospitalaria', description: 'Normas de bioseguridad para todo el personal y rotantes.', category: 'Protocolos', area: 'Institucional', date: '03/2026', version: '4.1', type: 'PDF', size: '610 KB', url: 'Detalle de Documento.dc.html' },
+    { title: 'Rotaciones y Visitas Autorizadas', description: 'Planilla de rotaciones y visitas autorizadas en el HRRG.', category: 'Normativas', area: 'Rotaciones', date: '06/2026', version: '—', type: 'Planilla', size: '', url: 'https://docs.google.com/spreadsheets/d/1fz92F8DbGFFwEgCqIaUvHlXCwuAlBtV6zZ58wOUX5Mc/edit?usp=sharing' },
+    { title: 'Reglamento de Residencias Médicas', description: 'Marco normativo del sistema de residencias del HRRG.', category: 'Normativas', area: 'Residencias', date: '04/2026', version: '—', type: 'Carpeta', size: '', url: 'https://drive.google.com/drive/folders/1tDbIZ6dvTrEv1yQxCoZzLJrI-SYHqL65?usp=drive_link' },
+    { title: 'Cronograma de Capacitaciones 2026', description: 'Planificación anual de cursos y talleres de formación continua.', category: 'Material académico', area: 'Formación', date: '01/2026', version: '—', type: 'Carpeta', size: '', url: 'https://drive.google.com/drive/folders/1zy5eBaW2vMDOZOTy3H7evoZhEcnhQoXw?usp=sharing' },
+    { title: 'Informe de Gestión Vigencia 2025', description: 'Resumen anual de actividades de Dirección Académica.', category: 'Informes', area: 'Institucional', date: '02/2026', version: '—', type: 'Carpeta', size: '', url: 'Informes de Gestión.dc.html' }
+  ];
+
+  renderVals() {
+    const active = this.state.activeCategory;
+    const labels = ['Todas', 'Formularios', 'Documentos', 'Protocolos', 'Normativas', 'Informes'];
+    const categories = labels.map(label => {
+      const isActive = label === active;
+      return {
+        label,
+        onClick: () => this.setState({ activeCategory: label }),
+        color: isActive ? 'oklch(42% 0.13 250)' : 'oklch(35% 0.01 90)',
+        border: isActive ? 'oklch(42% 0.13 250)' : 'transparent',
+        selected: isActive ? 'true' : 'false'
+      };
+    });
+    const filtered = active === 'Todas' ? this.data : this.data.filter(d => d.category === active);
+    const items = filtered.map(d => ({ ...d, external: d.url.startsWith('http'), metaText: d.size ? (d.type + ' · ' + d.size) : d.type + (d.url.startsWith('http') ? '' : ' · página interna') }));
+    return { categories, items, resultsCount: items.length };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;font-family:'Public Sans',sans-serif;color:oklch(15% 0.006 90)}
+a{color:oklch(42% 0.13 250)}
+input,select,textarea{font-family:'Public Sans',sans-serif}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition-duration:.001ms !important;animation-duration:.001ms !important}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<!-- HEADER -->
+<div style="display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:72px;border-bottom:1px solid oklch(90% 0.005 90);flex:none">
+  <div onClick="{{ goToHome }}" style="display:flex;align-items:center;gap:10px;cursor:pointer">
+    <div style="width:36px;height:36px;border-radius:8px;background:oklch(50% 0.15 250);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-weight:700;font-size:15px">DA</div>
+    <div style="font-weight:700;font-size:14px;line-height:1.2">Dirección Académica<div style="font-size:10px;color:oklch(45% 0.01 90);font-weight:400">Docencia e Investigación · HRRG</div></div>
+  </div>
+  <div style="display:flex;gap:28px">
+    <button type="button" onClick="{{ goToFormacion }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:{{ navFormacionColor }};border-bottom:2px solid {{ navFormacionBorder }};padding:0 0 24px;font-family:'Public Sans',sans-serif">Formación</button>
+    <button type="button" onClick="{{ goToInvestigacion }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:{{ navInvestigacionColor }};border-bottom:2px solid {{ navInvestigacionBorder }};padding:0 0 24px;font-family:'Public Sans',sans-serif">Investigación</button>
+    <button type="button" onClick="{{ goToStub }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:oklch(35% 0.01 90);padding:0 0 24px;font-family:'Public Sans',sans-serif">Recursos</button>
+    <button type="button" onClick="{{ goToStub }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:oklch(35% 0.01 90);padding:0 0 24px;font-family:'Public Sans',sans-serif">Institucional</button>
+    <button type="button" onClick="{{ goToStub }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:oklch(35% 0.01 90);padding:0 0 24px;font-family:'Public Sans',sans-serif">Contacto</button>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button type="button" aria-label="Buscar" onClick="{{ goToBuscador }}" style="width:40px;height:40px;background:transparent;border:none;border-radius:8px;cursor:pointer;color:oklch(35% 0.01 90);display:flex;align-items:center;justify-content:center" style-hover="background:oklch(95% 0.004 90)"><dc-import name="Icon" icon="search" size="18" color="currentColor" hint-size="18px,18px"></dc-import></button>
+    <span style="background:oklch(50% 0.15 250);color:#fff;padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600">WhatsApp</span>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<sc-if value="{{ showBreadcrumb }}">
+<div style="padding:16px 40px 0;display:flex;align-items:center;gap:8px;font-size:13px;flex:none">
+  <sc-for list="{{ breadcrumb }}" as="b" hint-placeholder-count="2">
+    <sc-if value="{{ b.isLast }}"><span style="color:oklch(15% 0.006 90)" aria-current="page">{{ b.label }}</span></sc-if>
+    <sc-if value="{{ b.isNotLast }}"><button type="button" onClick="{{ b.onClick }}" style="background:transparent;border:none;padding:0;cursor:pointer;color:oklch(42% 0.13 250);text-decoration:underline;font-size:13px;font-family:'Public Sans',sans-serif">{{ b.label }}</button><span style="color:oklch(68% 0.008 90)">›</span></sc-if>
+  </sc-for>
+</div>
+</sc-if>
+
+<!-- MAIN -->
+<div style="flex:1">
+
+<!-- ============ HOME ============ -->
+<sc-if value="{{ isHome }}">
+<div style="display:flex;gap:48px;padding:56px 40px 48px;align-items:center;max-width:1200px;margin:0 auto">
+  <div style="flex:1">
+    <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:oklch(45% 0.01 90);margin-bottom:14px">Dirección Académica · Docencia e Investigación</div>
+    <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:38px;line-height:1.18;margin-bottom:14px">Formación, investigación y gestión académica para el equipo de salud de Santa Cruz</div>
+    <div style="font-size:16px;line-height:1.6;color:oklch(35% 0.01 90)">Capacitaciones, ateneos, residencias, rotaciones e investigación del HRRG en un solo lugar. Prototipo navegable — probá los flujos principales.</div>
+  </div>
+  <div style="flex:1;height:260px;border:1.5px dashed oklch(75% 0.006 90);background:oklch(98% 0.003 90);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:13px;color:oklch(55% 0.01 90)">foto institucional</div>
+</div>
+
+<div style="padding:8px 40px 56px;max-width:1200px;margin:0 auto">
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:24px;margin-bottom:6px">¿Qué necesitás hacer?</div>
+  <div style="font-size:13px;color:oklch(45% 0.01 90);margin-bottom:22px">Elegí una tarea para empezar a probar el prototipo.</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+    <button type="button" onClick="{{ goToCapacitaciones }}" style="{{ taskCardStyle }}"><dc-import name="Icon" icon="calendar" size="22" color="oklch(42% 0.13 250)" hint-size="22px,22px"></dc-import><div style="font-weight:700;font-size:15px;margin-top:10px">Inscribirme a una capacitación</div><div style="font-size:12px;color:oklch(45% 0.01 90);margin-top:4px">Flujo A</div></button>
+    <button type="button" onClick="{{ goToStub }}" style="{{ taskCardStyle }}"><dc-import name="Icon" icon="file-text" size="22" color="oklch(42% 0.13 250)" hint-size="22px,22px"></dc-import><div style="font-weight:700;font-size:15px;margin-top:10px">Consultar sobre residencias</div><div style="font-size:12px;color:oklch(45% 0.01 90);margin-top:4px">Fuera de alcance</div></button>
+    <button type="button" onClick="{{ goToRotaciones }}" style="{{ taskCardStyle }}"><dc-import name="Icon" icon="arrow-right" size="22" color="oklch(42% 0.13 250)" hint-size="22px,22px"></dc-import><div style="font-weight:700;font-size:15px;margin-top:10px">Solicitar una rotación</div><div style="font-size:12px;color:oklch(45% 0.01 90);margin-top:4px">Flujos B y C</div></button>
+    <button type="button" onClick="{{ goToStub }}" style="{{ taskCardStyle }}"><dc-import name="Icon" icon="info" size="22" color="oklch(42% 0.13 250)" hint-size="22px,22px"></dc-import><div style="font-weight:700;font-size:15px;margin-top:10px">Ver ateneos</div><div style="font-size:12px;color:oklch(45% 0.01 90);margin-top:4px">Fuera de alcance</div></button>
+    <button type="button" onClick="{{ goToInvestigacion }}" style="{{ taskCardStyle }}"><dc-import name="Icon" icon="search" size="22" color="oklch(42% 0.13 250)" hint-size="22px,22px"></dc-import><div style="font-weight:700;font-size:15px;margin-top:10px">Presentar un proyecto de investigación</div><div style="font-size:12px;color:oklch(45% 0.01 90);margin-top:4px">Flujo E</div></button>
+    <button type="button" onClick="{{ goToBuscador }}" style="{{ taskCardStyle }}"><dc-import name="Icon" icon="download" size="22" color="oklch(42% 0.13 250)" hint-size="22px,22px"></dc-import><div style="font-weight:700;font-size:15px;margin-top:10px">Buscar un formulario</div><div style="font-size:12px;color:oklch(45% 0.01 90);margin-top:4px">Flujo D</div></button>
+  </div>
+</div>
+</sc-if>
+
+<!-- ============ FORMACIÓN ============ -->
+<sc-if value="{{ isFormacion }}">
+<div style="max-width:1200px;margin:0 auto;padding:24px 40px 56px">
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:34px;margin-bottom:14px">Formación</div>
+  <div style="font-size:16px;line-height:1.6;color:oklch(35% 0.01 90);margin-bottom:28px;max-width:700px">Cursos, ateneos, residencias y rotaciones para la formación continua del equipo de salud del HRRG.</div>
+  <div style="display:flex;gap:32px;border-bottom:1px solid oklch(90% 0.005 90);padding-bottom:16px;margin-bottom:32px">
+    <button type="button" onClick="{{ goToCapacitaciones }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:oklch(15% 0.006 90);font-family:'Public Sans',sans-serif">Capacitaciones</button>
+    <button type="button" onClick="{{ goToStub }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:oklch(35% 0.01 90);font-family:'Public Sans',sans-serif">Ateneos</button>
+    <button type="button" onClick="{{ goToStub }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:oklch(35% 0.01 90);font-family:'Public Sans',sans-serif">Residencias</button>
+    <button type="button" onClick="{{ goToRotaciones }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:oklch(15% 0.006 90);font-family:'Public Sans',sans-serif">Rotaciones</button>
+    <button type="button" onClick="{{ goToStub }}" style="background:transparent;border:none;cursor:pointer;font-size:14px;font-weight:600;color:oklch(35% 0.01 90);font-family:'Public Sans',sans-serif">Formación continua</button>
+  </div>
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:22px;margin-bottom:18px">Actividades destacadas</div>
+  <div style="border:1px solid oklch(90% 0.005 90);border-radius:8px;overflow:hidden">
+    <button type="button" onClick="{{ goToCapacitacionDetalle }}" style="width:100%;text-align:left;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:20px;padding:18px 22px;border-bottom:1px solid oklch(90% 0.005 90);font-family:'Public Sans',sans-serif" style-hover="background:oklch(98% 0.003 90)">
+      <span style="background:oklch(95% 0.004 90);color:oklch(35% 0.01 90);padding:3px 12px;border-radius:999px;font-size:11px;font-weight:600;flex:none">Capacitación</span>
+      <span style="flex:1;font-size:15px;font-weight:600;color:oklch(15% 0.006 90)">Curso de Reanimación Cardiopulmonar (RCP) Básica</span>
+      <span style="font-size:12px;color:oklch(45% 0.01 90)">12 ago · Presencial</span>
+    </button>
+    <button type="button" onClick="{{ goToRotaciones }}" style="width:100%;text-align:left;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:20px;padding:18px 22px;font-family:'Public Sans',sans-serif" style-hover="background:oklch(98% 0.003 90)">
+      <span style="background:oklch(95% 0.004 90);color:oklch(35% 0.01 90);padding:3px 12px;border-radius:999px;font-size:11px;font-weight:600;flex:none">Rotaciones</span>
+      <span style="flex:1;font-size:15px;font-weight:600;color:oklch(15% 0.006 90)">Cómo solicitar una rotación en el HRRG</span>
+      <span style="font-size:12px;color:oklch(45% 0.01 90)">Servicio permanente</span>
+    </button>
+  </div>
+</div>
+</sc-if>
+
+<!-- ============ CAPACITACIONES (listado) ============ -->
+<sc-if value="{{ isCapacitaciones }}">
+<div style="max-width:1200px;margin:0 auto;padding:24px 40px 56px">
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:34px;margin-bottom:14px">Capacitaciones</div>
+  <div style="font-size:15px;color:oklch(35% 0.01 90);margin-bottom:24px">Cursos y talleres de formación continua del HRRG.</div>
+  <div style="display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid oklch(82% 0.006 90);border-radius:8px;max-width:420px;margin-bottom:24px">
+    <dc-import name="Icon" icon="search" size="18" color="oklch(45% 0.01 90)" hint-size="18px,18px"></dc-import>
+    <input value="{{ courseSearch }}" onChange="{{ setCourseSearch }}" placeholder="Buscar por nombre…" aria-label="Buscar capacitaciones" style="border:none;outline:none;flex:1;font-size:14px"></input>
+  </div>
+  <div style="font-size:13px;color:oklch(45% 0.01 90);margin-bottom:14px">{{ coursesCount }} capacitaciones encontradas</div>
+  <div style="border:1px solid oklch(90% 0.005 90);border-radius:8px;overflow:hidden">
+    <sc-for list="{{ courses }}" as="c" hint-placeholder-count="4">
+      <button type="button" onClick="{{ c.onClick }}" style="width:100%;text-align:left;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:20px;padding:18px 22px;border-bottom:1px solid oklch(90% 0.005 90);font-family:'Public Sans',sans-serif" style-hover="background:oklch(98% 0.003 90)">
+        <span style="width:48px;text-align:center;flex:none"><span style="display:block;font-size:17px;font-weight:700;color:oklch(42% 0.13 250)">{{ c.day }}</span><span style="display:block;font-size:11px;color:oklch(45% 0.01 90)">{{ c.month }}</span></span>
+        <span style="flex:1"><span style="display:block;font-size:15px;font-weight:600;color:oklch(15% 0.006 90)">{{ c.title }}</span><span style="display:block;font-size:12px;color:oklch(45% 0.01 90);margin-top:2px">{{ c.modalidad }}</span></span>
+        <span style="background:oklch(95% 0.03 150);color:oklch(35% 0.11 150);padding:3px 12px;border-radius:999px;font-size:11px;font-weight:600;flex:none">Vigente</span>
+      </button>
+    </sc-for>
+  </div>
+  <sc-if value="{{ coursesEmpty }}"><div style="padding:56px 20px;text-align:center;color:oklch(45% 0.01 90);font-size:14px">No encontramos capacitaciones con esa búsqueda.</div></sc-if>
+</div>
+</sc-if>
+
+<!-- ============ DETALLE CAPACITACIÓN ============ -->
+<sc-if value="{{ isCapacitacionDetalle }}">
+<div style="max-width:1200px;margin:0 auto;padding:24px 40px 56px;display:flex;gap:48px;align-items:flex-start">
+  <div style="flex:1;max-width:680px">
+    <span style="background:oklch(95% 0.004 90);color:oklch(35% 0.01 90);padding:3px 12px;border-radius:999px;font-size:12px;font-weight:600">Capacitación</span>
+    <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:32px;margin:14px 0 12px;line-height:1.2">Curso de Reanimación Cardiopulmonar (RCP) Básica</div>
+    <div style="font-size:16px;line-height:1.6;color:oklch(35% 0.01 90);margin-bottom:24px">Curso teórico-práctico dirigido a todo el equipo de salud del HRRG, con certificación de participación. Incluye práctica en maniquíes y simulacros de paro cardiorrespiratorio.</div>
+    <div style="border-top:1px solid oklch(90% 0.005 90);padding-top:20px">
+      <div style="font-size:13px;color:oklch(45% 0.01 90)">Organiza: Dirección Académica · CODEI</div>
+    </div>
+  </div>
+  <div style="width:340px;flex:none;border:1px solid oklch(90% 0.005 90);border-radius:14px;padding:26px">
+    <span style="background:oklch(95% 0.03 150);color:oklch(35% 0.11 150);padding:5px 14px;border-radius:999px;font-size:13px;font-weight:600">Inscripción abierta</span>
+    <div style="display:flex;flex-direction:column;gap:14px;margin:20px 0;padding-top:20px;border-top:1px solid oklch(90% 0.005 90)">
+      <div><div style="font-size:11px;font-weight:700;letter-spacing:.05em;color:oklch(45% 0.01 90);margin-bottom:3px">FECHA</div><div style="font-size:14px">12 de agosto de 2026 · 9 a 13 h</div></div>
+      <div><div style="font-size:11px;font-weight:700;letter-spacing:.05em;color:oklch(45% 0.01 90);margin-bottom:3px">MODALIDAD Y LUGAR</div><div style="font-size:14px">Presencial · Auditorio del HRRG</div></div>
+      <div><div style="font-size:11px;font-weight:700;letter-spacing:.05em;color:oklch(45% 0.01 90);margin-bottom:3px">CUPOS</div><div style="font-size:14px">18 de 30 disponibles</div></div>
+    </div>
+    <div style="border-top:1px solid oklch(90% 0.005 90);padding-top:20px">
+      <sc-if value="{{ inscripcionIdle }}"><button type="button" onClick="{{ handleInscribirme }}" style="width:100%;background:oklch(50% 0.15 250);color:#fff;padding:14px;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Public Sans',sans-serif" style-hover="background:oklch(42% 0.13 250)" style-focus="outline:none;box-shadow:0 0 0 3px #fff,0 0 0 5px oklch(42% 0.13 250)">Inscribirme</button></sc-if>
+      <sc-if value="{{ inscripcionLoading }}"><div style="display:flex;align-items:center;gap:10px;justify-content:center;padding:14px;font-size:14px;color:oklch(45% 0.01 90)"><span style="width:16px;height:16px;border:2px solid oklch(82% 0.006 90);border-top-color:oklch(42% 0.13 250);border-radius:50%"></span>Enviando inscripción…</div></sc-if>
+      <sc-if value="{{ inscripcionSuccess }}">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:10px;padding:14px;border:1px solid oklch(45% 0.13 150 / 0.4);background:oklch(95% 0.03 150);border-radius:8px">
+            <dc-import name="Icon" icon="check-circle" size="20" color="oklch(35% 0.11 150)" hint-size="20px,20px"></dc-import>
+            <div style="font-size:13px;color:oklch(35% 0.01 90)"><b>Inscripción confirmada.</b> Te llegará un email con los detalles.</div>
+          </div>
+          <button type="button" onClick="{{ goToCapacitaciones }}" style="width:100%;border:1.5px solid oklch(82% 0.006 90);background:transparent;padding:12px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Public Sans',sans-serif">Ver otras capacitaciones</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ============ ROTACIONES ============ -->
+<sc-if value="{{ isRotaciones }}">
+<div style="max-width:1200px;margin:0 auto;padding:24px 40px 56px">
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:34px;margin-bottom:14px">Rotaciones</div>
+  <div style="font-size:16px;line-height:1.6;color:oklch(35% 0.01 90);margin-bottom:32px;max-width:700px">Rotá por el Hospital Regional Río Gallegos como parte de tu formación clínica o académica.</div>
+
+  <div style="display:flex;gap:24px;margin-bottom:48px">
+    <div style="flex:1.2;background:oklch(50% 0.15 250);border-radius:14px;padding:30px;color:#fff">
+      <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;margin-bottom:10px">Solicitar rotación</div>
+      <div style="font-size:14px;opacity:.95;margin-bottom:18px">Iniciá tu solicitud completando el formulario y la documentación requerida.</div>
+      <button type="button" onClick="{{ goToRotacionesSolicitar }}" style="background:#fff;color:oklch(42% 0.13 250);padding:12px 22px;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Public Sans',sans-serif" style-focus="outline:none;box-shadow:0 0 0 3px oklch(50% 0.15 250),0 0 0 5px #fff">Solicitar rotación</button>
+    </div>
+    <div style="flex:1;border:1.5px solid oklch(82% 0.006 90);border-radius:14px;padding:30px">
+      <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:18px;margin-bottom:10px;color:oklch(15% 0.006 90)">Consultar solicitud</div>
+      <div style="font-size:13px;color:oklch(45% 0.01 90);margin-bottom:16px">¿Ya enviaste tu solicitud? Consultá su estado.</div>
+      <sc-if value="{{ consultaIdle }}">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <input value="{{ consultaNumero }}" onChange="{{ setConsultaNumero }}" placeholder="Número de solicitud" aria-label="Número de solicitud" style="height:42px;padding:0 12px;border:1px solid oklch(82% 0.006 90);border-radius:8px;font-size:13px"></input>
+          <input value="{{ consultaDni }}" onChange="{{ setConsultaDni }}" placeholder="DNI" aria-label="DNI" style="height:42px;padding:0 12px;border:1px solid oklch(82% 0.006 90);border-radius:8px;font-size:13px"></input>
+          <button type="button" onClick="{{ handleConsultar }}" style="border:1.5px solid oklch(15% 0.006 90);background:transparent;padding:11px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Public Sans',sans-serif" style-focus="outline:none;box-shadow:0 0 0 3px #fff,0 0 0 5px oklch(42% 0.13 250)">Consultar estado</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ consultaLoading }}"><div style="font-size:13px;color:oklch(45% 0.01 90)">Consultando…</div></sc-if>
+      <sc-if value="{{ consultaFound }}">
+        <div style="border-top:1px solid oklch(90% 0.005 90);padding-top:14px">
+          <div style="font-size:13px;color:oklch(45% 0.01 90);margin-bottom:6px">Solicitud N° {{ consultaNumero }}</div>
+          <span style="background:oklch(95% 0.025 230);color:oklch(38% 0.09 230);padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600">En revisión</span>
+          <div style="font-size:13px;color:oklch(35% 0.01 90);margin-top:10px">Te contactaremos por email o WhatsApp con la resolución.</div>
+          <button type="button" onClick="{{ resetConsulta }}" style="margin-top:12px;border:none;background:transparent;color:oklch(42% 0.13 250);text-decoration:underline;font-size:13px;cursor:pointer;padding:0">Consultar otra solicitud</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ consultaNotFound }}">
+        <div style="border-top:1px solid oklch(90% 0.005 90);padding-top:14px">
+          <div style="font-size:13px;color:oklch(35% 0.01 90)">No encontramos una solicitud con esos datos. Completá ambos campos e intentá de nuevo.</div>
+          <button type="button" onClick="{{ resetConsulta }}" style="margin-top:10px;border:none;background:transparent;color:oklch(42% 0.13 250);text-decoration:underline;font-size:13px;cursor:pointer;padding:0">Reintentar</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div id="requisitos" style="border-top:1px solid oklch(90% 0.005 90);padding-top:32px">
+    <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:22px;margin-bottom:18px">Requisitos</div>
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:680px">
+      <div style="display:flex;gap:10px"><dc-import name="Icon" icon="check" size="16" color="oklch(35% 0.11 150)" hint-size="16px,16px"></dc-import><span style="font-size:15px;color:oklch(35% 0.01 90)">Ser estudiante regular o profesional matriculado en la especialidad correspondiente.</span></div>
+      <div style="display:flex;gap:10px"><dc-import name="Icon" icon="check" size="16" color="oklch(35% 0.11 150)" hint-size="16px,16px"></dc-import><span style="font-size:15px;color:oklch(35% 0.01 90)">Contar con aval de la institución de origen.</span></div>
+      <div style="display:flex;gap:10px"><dc-import name="Icon" icon="check" size="16" color="oklch(35% 0.11 150)" hint-size="16px,16px"></dc-import><span style="font-size:15px;color:oklch(35% 0.01 90)">Presentar la documentación al menos 30 días antes de la fecha propuesta.</span></div>
+    </div>
+    <button type="button" onClick="{{ goToRotacionesSolicitar }}" style="margin-top:22px;background:oklch(50% 0.15 250);color:#fff;padding:13px 22px;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Public Sans',sans-serif">Ya cumplo los requisitos — solicitar rotación</button>
+  </div>
+</div>
+</sc-if>
+
+<!-- ============ SOLICITAR ROTACIÓN ============ -->
+<sc-if value="{{ isRotacionesSolicitar }}">
+<div style="max-width:640px;margin:0 auto;padding:24px 40px 64px">
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:30px;margin-bottom:10px">Solicitar rotación</div>
+  <div style="font-size:15px;color:oklch(35% 0.01 90);margin-bottom:28px">Completá el formulario. Te confirmaremos por email en un plazo de 5 días hábiles.</div>
+
+  <sc-if value="{{ rotFormShowing }}">
+    <form onSubmit="{{ handleSubmitRotacion }}" style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:600">Nombre completo</label><input required="" style="height:44px;padding:0 12px;border:1px solid oklch(82% 0.006 90);border-radius:8px;font-size:15px"></input></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:600">Email</label><input type="email" required="" style="height:44px;padding:0 12px;border:1px solid oklch(82% 0.006 90);border-radius:8px;font-size:15px"></input></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:600">Tipo de rotación</label>
+        <select style="height:44px;padding:0 12px;border:1px solid oklch(82% 0.006 90);border-radius:8px;font-size:15px;background:#fff"><option>Rotación clínica</option><option>Especialidades quirúrgicas</option><option>Enfermería</option><option>Visita académica / observación</option></select>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:600">Institución de origen</label><input required="" style="height:44px;padding:0 12px;border:1px solid oklch(82% 0.006 90);border-radius:8px;font-size:15px"></input></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:13px;font-weight:600">Fecha propuesta de inicio</label><input type="date" required="" style="height:44px;padding:0 12px;border:1px solid oklch(82% 0.006 90);border-radius:8px;font-size:15px"></input></div>
+      <button type="submit" style="margin-top:8px;background:oklch(50% 0.15 250);color:#fff;padding:14px;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Public Sans',sans-serif" style-hover="background:oklch(42% 0.13 250)" style-focus="outline:none;box-shadow:0 0 0 3px #fff,0 0 0 5px oklch(42% 0.13 250)">Enviar solicitud</button>
+      <button type="button" onClick="{{ goToRotaciones }}" style="background:transparent;border:none;color:oklch(42% 0.13 250);text-decoration:underline;font-size:13px;cursor:pointer;padding:4px 0;font-family:'Public Sans',sans-serif;text-align:center">Cancelar y volver a Rotaciones</button>
+    </form>
+  </sc-if>
+  <sc-if value="{{ rotFormLoading }}"><div style="display:flex;align-items:center;gap:10px;padding:20px 0;font-size:14px;color:oklch(45% 0.01 90)"><span style="width:16px;height:16px;border:2px solid oklch(82% 0.006 90);border-top-color:oklch(42% 0.13 250);border-radius:50%"></span>Enviando solicitud…</div></sc-if>
+  <sc-if value="{{ rotFormSuccess }}">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;gap:12px;padding:18px;border:1px solid oklch(45% 0.13 150 / 0.4);background:oklch(95% 0.03 150);border-radius:8px">
+        <dc-import name="Icon" icon="check-circle" size="22" color="oklch(35% 0.11 150)" hint-size="22px,22px"></dc-import>
+        <div><div style="font-weight:700;font-size:15px;margin-bottom:4px">Solicitud enviada</div><div style="font-size:13px;color:oklch(35% 0.01 90)">Tu número de solicitud es <b>{{ rotRequestNumber }}</b>. Guardalo para consultar el estado más adelante.</div></div>
+      </div>
+      <div style="display:flex;gap:12px">
+        <button type="button" onClick="{{ goToConsultaConNumero }}" style="border:1.5px solid oklch(82% 0.006 90);background:transparent;padding:12px 18px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Public Sans',sans-serif">Consultar mi solicitud</button>
+        <button type="button" onClick="{{ goToHome }}" style="border:none;background:transparent;color:oklch(42% 0.13 250);text-decoration:underline;font-size:14px;cursor:pointer;padding:12px 0">Volver al inicio</button>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<!-- ============ INVESTIGACIÓN ============ -->
+<sc-if value="{{ isInvestigacion }}">
+<div style="max-width:1200px;margin:0 auto;padding:24px 40px 56px">
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:34px;margin-bottom:14px">Investigación</div>
+  <div style="font-size:16px;line-height:1.6;color:oklch(35% 0.01 90);margin-bottom:32px;max-width:700px">Proyectos en curso, publicaciones y cómo presentar una propuesta nueva.</div>
+  <div style="display:flex;gap:20px;margin-bottom:40px">
+    <div style="flex:1.2;background:oklch(50% 0.15 250);border-radius:14px;padding:28px;color:#fff">
+      <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:19px;margin-bottom:10px">Ver proyectos y publicaciones</div>
+      <div style="font-size:13px;opacity:.95">Consultá las líneas activas y los trabajos publicados por el equipo del HRRG.</div>
+    </div>
+    <div style="flex:1;border:1.5px solid oklch(82% 0.006 90);border-radius:14px;padding:28px">
+      <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:18px;margin-bottom:10px">Presentar un proyecto</div>
+      <div style="font-size:13px;color:oklch(45% 0.01 90)">Requisitos, comité de ética y plazos de evaluación.</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid oklch(90% 0.005 90);padding-top:28px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px">
+      <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:22px">Trabajos y proyectos</div>
+      <button type="button" onClick="{{ goToRepositorio }}" style="background:transparent;border:none;color:oklch(42% 0.13 250);text-decoration:underline;font-size:14px;font-weight:600;cursor:pointer;padding:0;font-family:'Public Sans',sans-serif">Ver repositorio completo →</button>
+    </div>
+    <div style="border:1px solid oklch(90% 0.005 90);border-radius:8px;overflow:hidden">
+      <button type="button" onClick="{{ goToRepositorio }}" style="width:100%;text-align:left;background:transparent;border:none;cursor:pointer;display:flex;gap:20px;padding:16px 22px;border-bottom:1px solid oklch(90% 0.005 90);font-family:'Public Sans',sans-serif" style-hover="background:oklch(98% 0.003 90)"><span style="width:44px;color:oklch(45% 0.01 90);font-size:13px;flex:none">2026</span><span style="font-size:14px;font-weight:600">Convocatoria a proyectos de investigación en salud 2026</span></button>
+      <button type="button" onClick="{{ goToRepositorio }}" style="width:100%;text-align:left;background:transparent;border:none;cursor:pointer;display:flex;gap:20px;padding:16px 22px;font-family:'Public Sans',sans-serif" style-hover="background:oklch(98% 0.003 90)"><span style="width:44px;color:oklch(45% 0.01 90);font-size:13px;flex:none">2025</span><span style="font-size:14px;font-weight:600">Prevalencia de hipertensión arterial en Santa Cruz</span></button>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ============ REPOSITORIO ============ -->
+<sc-if value="{{ isRepositorio }}">
+<div style="max-width:1200px;margin:0 auto;padding:24px 40px 56px">
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:32px;margin-bottom:14px">Repositorio de investigación</div>
+  <div style="font-size:15px;color:oklch(35% 0.01 90);margin-bottom:28px">Trabajos, proyectos y normativa de investigación en salud del HRRG.</div>
+  <div style="border:1px solid oklch(90% 0.005 90);border-radius:8px;overflow:hidden">
+    <sc-for list="{{ repoDocs }}" as="d" hint-placeholder-count="4">
+      <button type="button" onClick="{{ d.onClick }}" style="width:100%;text-align:left;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid oklch(90% 0.005 90);font-family:'Public Sans',sans-serif" style-hover="background:oklch(98% 0.003 90)">
+        <dc-import name="Icon" icon="file-text" size="20" color="oklch(42% 0.13 250)" hint-size="20px,20px"></dc-import>
+        <span style="flex:1"><span style="display:block;font-size:14px;font-weight:700">{{ d.title }}</span><span style="display:block;font-size:12px;color:oklch(45% 0.01 90);margin-top:2px">{{ d.meta }}</span></span>
+        <dc-import name="Icon" icon="download" size="18" color="oklch(45% 0.01 90)" hint-size="18px,18px"></dc-import>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<!-- ============ BUSCADOR ============ -->
+<sc-if value="{{ isBuscador }}">
+<div style="max-width:720px;margin:0 auto;padding:24px 40px 64px">
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:28px;margin-bottom:18px">Buscar en el portal</div>
+  <div style="display:flex;align-items:center;gap:10px;height:48px;padding:0 16px;border:1.5px solid oklch(82% 0.006 90);border-radius:8px;margin-bottom:20px">
+    <dc-import name="Icon" icon="search" size="20" color="oklch(45% 0.01 90)" hint-size="20px,20px"></dc-import>
+    <input value="{{ searchQuery }}" onChange="{{ setSearchQuery }}" placeholder="Ej: formulario de rotación" aria-label="Buscar" autofocus="" style="border:none;outline:none;flex:1;font-size:16px"></input>
+  </div>
+  <sc-if value="{{ searchEmpty }}">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button type="button" onClick="{{ setQueryFormulario }}" style="border:1px solid oklch(82% 0.006 90);background:transparent;color:oklch(35% 0.01 90);padding:8px 14px;border-radius:999px;font-size:13px;cursor:pointer;font-family:'Public Sans',sans-serif">formulario de rotación</button>
+      <button type="button" onClick="{{ setQueryResidencia }}" style="border:1px solid oklch(82% 0.006 90);background:transparent;color:oklch(35% 0.01 90);padding:8px 14px;border-radius:999px;font-size:13px;cursor:pointer;font-family:'Public Sans',sans-serif">residencia</button>
+    </div>
+  </sc-if>
+  <sc-if value="{{ searchHasResults }}">
+    <div style="font-size:13px;color:oklch(45% 0.01 90);margin-bottom:10px">{{ searchResultsCount }} resultados</div>
+    <div style="border:1px solid oklch(90% 0.005 90);border-radius:8px;overflow:hidden">
+      <sc-for list="{{ searchResults }}" as="r" hint-placeholder-count="3">
+        <button type="button" onClick="{{ r.onClick }}" style="width:100%;text-align:left;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid oklch(90% 0.005 90);font-family:'Public Sans',sans-serif" style-hover="background:oklch(98% 0.003 90)">
+          <span style="background:oklch(95% 0.004 90);color:oklch(35% 0.01 90);padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;flex:none">{{ r.type }}</span>
+          <span style="flex:1"><span style="display:block;font-size:14px;font-weight:600">{{ r.title }}</span><span style="display:block;font-size:12px;color:oklch(45% 0.01 90)">{{ r.meta }}</span></span>
+        </button>
+      </sc-for>
+    </div>
+  </sc-if>
+  <sc-if value="{{ searchZero }}"><div style="padding:40px 0;text-align:center;color:oklch(45% 0.01 90);font-size:14px">Sin resultados para "{{ searchQuery }}".</div></sc-if>
+</div>
+</sc-if>
+
+<!-- ============ DOCUMENTO ============ -->
+<sc-if value="{{ isDocumento }}">
+<div style="max-width:680px;margin:0 auto;padding:24px 40px 64px">
+  <span style="background:oklch(95% 0.004 90);color:oklch(35% 0.01 90);padding:3px 12px;border-radius:999px;font-size:12px;font-weight:600">{{ currentDoc.type }}</span>
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:28px;margin:14px 0 10px;line-height:1.25">{{ currentDoc.title }}</div>
+  <div style="font-size:13px;color:oklch(45% 0.01 90);margin-bottom:20px">{{ currentDoc.meta }}</div>
+  <div style="font-size:15px;line-height:1.65;color:oklch(35% 0.01 90);margin-bottom:28px">{{ currentDoc.description }}</div>
+  <button type="button" style="display:flex;align-items:center;gap:8px;background:oklch(50% 0.15 250);color:#fff;padding:13px 22px;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Public Sans',sans-serif"><dc-import name="Icon" icon="download" size="16" color="#fff" hint-size="16px,16px"></dc-import>Descargar {{ currentDoc.type }}</button>
+</div>
+</sc-if>
+
+<!-- ============ STUB ============ -->
+<sc-if value="{{ isStub }}">
+<div style="max-width:600px;margin:0 auto;padding:64px 40px;text-align:center">
+  <dc-import name="Icon" icon="info" size="28" color="oklch(68% 0.008 90)" hint-size="28px,28px"></dc-import>
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:22px;margin:16px 0 10px">Esta pantalla no forma parte del prototipo</div>
+  <div style="font-size:14px;color:oklch(45% 0.01 90);margin-bottom:22px">Este prototipo cubre los flujos A a E. Volvé al inicio para seguir probando.</div>
+  <button type="button" onClick="{{ goToHome }}" style="background:oklch(50% 0.15 250);color:#fff;padding:12px 22px;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Public Sans',sans-serif">Volver al inicio</button>
+</div>
+</sc-if>
+
+</div>
+
+<!-- FOOTER -->
+<div style="border-top:1px solid oklch(90% 0.005 90);padding:20px 40px;font-size:12px;color:oklch(45% 0.01 90);display:flex;justify-content:space-between;flex:none">
+  <span>Hospital Regional Río Gallegos · Ministerio de Salud de Santa Cruz</span>
+  <span>Prototipo navegable — no incluye animaciones decorativas</span>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    screen: 'home',
+    courseSearch: '',
+    inscripcion: 'idle',
+    consulta: 'idle',
+    consultaNumero: '',
+    consultaDni: '',
+    rotForm: 'form',
+    rotRequestNumber: '',
+    searchQuery: ''
+  };
+
+  courses = [
+    { day: '12', month: 'AGO', title: 'Curso de Reanimación Cardiopulmonar (RCP) Básica', modalidad: 'Presencial · Auditorio' },
+    { day: '22', month: 'AGO', title: 'Curso de Bioseguridad Hospitalaria', modalidad: 'Virtual' },
+    { day: '28', month: 'AGO', title: 'Jornada de Bioética Clínica', modalidad: 'Presencial · Auditorio' },
+    { day: '05', month: 'SEP', title: 'Taller de Manejo del Dolor en Cuidados Paliativos', modalidad: 'Presencial' }
+  ];
+
+  repoData = [
+    { title: 'Guía para la Presentación de Proyectos de Investigación', meta: 'PDF · actualizado 01/2026', type: 'PDF', description: 'Requisitos, plazos y formato para presentar un proyecto de investigación ante Dirección Académica.' },
+    { title: 'Reglamento del Comité de Ética en Investigación', meta: 'PDF · vigente', type: 'PDF', description: 'Normativa que regula la evaluación ética de proyectos de investigación en el HRRG.' },
+    { title: 'Prevalencia de hipertensión arterial en Santa Cruz', meta: 'Publicación · 2025', type: 'PDF', description: 'Estudio epidemiológico realizado por el equipo de investigación del HRRG.' },
+    { title: 'Adherencia a guías de reanimación cardiopulmonar', meta: 'Publicación · 2024', type: 'PDF', description: 'Trabajo de investigación clínica sobre adherencia a protocolos de RCP.' }
+  ];
+
+  searchData = [
+    { type: 'Formulario', title: 'Formulario de solicitud de rotación', meta: 'PDF · para completar', description: 'Formulario para iniciar una solicitud de rotación clínica o de especialidad en el HRRG.' },
+    { type: 'Capacitación', title: 'Curso de Reanimación Cardiopulmonar (RCP) Básica', meta: 'Presencial · 12 ago' },
+    { type: 'Residencias', title: 'Convocatoria 2027 a Residencias Médicas del HRRG', meta: 'Inscripción hasta el 20 ago' },
+    { type: 'Documento', title: 'Reglamento de Rotaciones y Visitas Autorizadas', meta: 'PDF · actualizado 06/2026', description: 'Normativa vigente que regula rotaciones y visitas académicas en el HRRG.' }
+  ];
+
+  scrollTop() { if (typeof window !== 'undefined') window.scrollTo(0, 0); }
+
+  renderVals() {
+    const s = this.state;
+    const go = (screen, extra) => () => { this.setState({ screen, ...(extra || {}) }); this.scrollTop(); };
+
+    const crumbsFor = {
+      home: [],
+      formacion: [['Inicio', 'home']],
+      capacitaciones: [['Inicio', 'home'], ['Formación', 'formacion']],
+      capacitacionDetalle: [['Inicio', 'home'], ['Formación', 'formacion'], ['Capacitaciones', 'capacitaciones']],
+      rotaciones: [['Inicio', 'home'], ['Formación', 'formacion']],
+      rotacionesSolicitar: [['Inicio', 'home'], ['Formación', 'formacion'], ['Rotaciones', 'rotaciones']],
+      investigacion: [['Inicio', 'home']],
+      repositorio: [['Inicio', 'home'], ['Investigación', 'investigacion']],
+      buscador: [['Inicio', 'home']],
+      documento: [['Inicio', 'home'], ['Buscador', 'buscador']],
+      stub: [['Inicio', 'home']]
+    };
+    const path = crumbsFor[s.screen] || [];
+    const breadcrumb = path.map(([label, target], i) => ({
+      label, isLast: false, isNotLast: true, onClick: go(target)
+    }));
+    if (s.screen !== 'home') breadcrumb.push({ label: this.currentLabel(s.screen), isLast: true, isNotLast: false, onClick: () => {} });
+
+    const filteredCourses = this.courses
+      .filter(c => c.title.toLowerCase().includes(s.courseSearch.toLowerCase()))
+      .map(c => ({ ...c, onClick: go('capacitacionDetalle') }));
+
+    const repoDocs = this.repoData.map(d => ({ ...d, onClick: go('documento', { currentDocIdx: d }) }));
+
+    const q = s.searchQuery.trim().toLowerCase();
+    const words = q.split(/\s+/).filter(Boolean);
+    const matches = words.length ? this.searchData.filter(d => {
+      const hay = (d.title + ' ' + d.type).toLowerCase();
+      return words.every(w => hay.includes(w));
+    }) : [];
+    const searchResults = matches.map(d => ({
+      ...d,
+      onClick: d.type === 'Formulario' || d.type === 'Documento'
+        ? () => { this.setState({ screen: 'documento', currentDoc: d }); this.scrollTop(); }
+        : () => {}
+    }));
+
+    const taskCardStyle = 'text-align:left;background:transparent;border:1px solid oklch(90% 0.005 90);border-radius:8px;padding:20px;cursor:pointer;font-family:\'Public Sans\',sans-serif;width:100%';
+
+    return {
+      isHome: s.screen === 'home',
+      isFormacion: s.screen === 'formacion',
+      isCapacitaciones: s.screen === 'capacitaciones',
+      isCapacitacionDetalle: s.screen === 'capacitacionDetalle',
+      isRotaciones: s.screen === 'rotaciones',
+      isRotacionesSolicitar: s.screen === 'rotacionesSolicitar',
+      isInvestigacion: s.screen === 'investigacion',
+      isRepositorio: s.screen === 'repositorio',
+      isBuscador: s.screen === 'buscador',
+      isDocumento: s.screen === 'documento',
+      isStub: s.screen === 'stub',
+
+      showBreadcrumb: s.screen !== 'home',
+      breadcrumb,
+
+      goToHome: go('home'),
+      goToFormacion: go('formacion'),
+      goToCapacitaciones: go('capacitaciones'),
+      goToCapacitacionDetalle: go('capacitacionDetalle'),
+      goToRotaciones: go('rotaciones'),
+      goToRotacionesSolicitar: go('rotacionesSolicitar', { rotForm: 'form' }),
+      goToInvestigacion: go('investigacion'),
+      goToRepositorio: go('repositorio'),
+      goToBuscador: go('buscador'),
+      goToStub: go('stub'),
+      goToConsultaConNumero: () => { this.setState({ screen: 'rotaciones', consulta: 'idle', consultaNumero: s.rotRequestNumber, consultaDni: '' }); this.scrollTop(); },
+
+      navFormacionColor: ['formacion', 'capacitaciones', 'capacitacionDetalle', 'rotaciones', 'rotacionesSolicitar'].includes(s.screen) ? 'oklch(42% 0.13 250)' : 'oklch(35% 0.01 90)',
+      navFormacionBorder: ['formacion', 'capacitaciones', 'capacitacionDetalle', 'rotaciones', 'rotacionesSolicitar'].includes(s.screen) ? 'oklch(42% 0.13 250)' : 'transparent',
+      navInvestigacionColor: ['investigacion', 'repositorio'].includes(s.screen) ? 'oklch(42% 0.13 250)' : 'oklch(35% 0.01 90)',
+      navInvestigacionBorder: ['investigacion', 'repositorio'].includes(s.screen) ? 'oklch(42% 0.13 250)' : 'transparent',
+
+      taskCardStyle,
+
+      courseSearch: s.courseSearch,
+      setCourseSearch: e => this.setState({ courseSearch: e.target.value }),
+      courses: filteredCourses,
+      coursesCount: filteredCourses.length,
+      coursesEmpty: filteredCourses.length === 0,
+
+      inscripcionIdle: s.inscripcion === 'idle',
+      inscripcionLoading: s.inscripcion === 'loading',
+      inscripcionSuccess: s.inscripcion === 'success',
+      handleInscribirme: () => {
+        this.setState({ inscripcion: 'loading' });
+        setTimeout(() => this.setState({ inscripcion: 'success' }), 800);
+      },
+
+      consultaIdle: s.consulta === 'idle',
+      consultaLoading: s.consulta === 'loading',
+      consultaFound: s.consulta === 'found',
+      consultaNotFound: s.consulta === 'notfound',
+      consultaNumero: s.consultaNumero,
+      consultaDni: s.consultaDni,
+      setConsultaNumero: e => this.setState({ consultaNumero: e.target.value }),
+      setConsultaDni: e => this.setState({ consultaDni: e.target.value }),
+      resetConsulta: () => this.setState({ consulta: 'idle', consultaNumero: '', consultaDni: '' }),
+      handleConsultar: () => {
+        this.setState({ consulta: 'loading' });
+        const found = s.consultaNumero.trim() !== '' && s.consultaDni.trim() !== '';
+        setTimeout(() => this.setState({ consulta: found ? 'found' : 'notfound' }), 700);
+      },
+
+      rotFormShowing: s.rotForm === 'form',
+      rotFormLoading: s.rotForm === 'loading',
+      rotFormSuccess: s.rotForm === 'success',
+      rotRequestNumber: s.rotRequestNumber,
+      handleSubmitRotacion: e => {
+        e.preventDefault();
+        this.setState({ rotForm: 'loading' });
+        const n = 'RT-2026-' + Math.floor(1000 + Math.random() * 9000);
+        setTimeout(() => this.setState({ rotForm: 'success', rotRequestNumber: n }), 800);
+      },
+
+      repoDocs,
+
+      searchQuery: s.searchQuery,
+      setSearchQuery: e => this.setState({ searchQuery: e.target.value }),
+      setQueryFormulario: () => this.setState({ searchQuery: 'formulario de rotación' }),
+      setQueryResidencia: () => this.setState({ searchQuery: 'residencia' }),
+      searchEmpty: q === '',
+      searchHasResults: q !== '' && matches.length > 0,
+      searchZero: q !== '' && matches.length === 0,
+      searchResults,
+      searchResultsCount: matches.length,
+
+      currentDoc: s.currentDoc || { type: '', title: '', meta: '', description: '' }
+    };
+  }
+
+  currentLabel(screen) {
+    const labels = {
+      formacion: 'Formación', capacitaciones: 'Capacitaciones', capacitacionDetalle: 'Curso de RCP Básica',
+      rotaciones: 'Rotaciones', rotacionesSolicitar: 'Solicitar rotación', investigacion: 'Investigación',
+      repositorio: 'Repositorio', buscador: 'Buscador', documento: 'Documento', stub: 'No disponible'
+    };
+    return labels[screen] || '';
+  }
+}
+
+</script>
+</body>
+</html>

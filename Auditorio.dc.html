@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auditorio | Dirección Académica HRRG</title>
+<meta name="description" content="Auditorio del Hospital Regional Río Gallegos para actividades académicas.">
+<meta property="og:title" content="Auditorio | Dirección Académica HRRG">
+<meta property="og:description" content="Auditorio del Hospital Regional Río Gallegos para actividades académicas.">
+<meta property="og:type" content="website">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f2f2f0;font-family:'Public Sans',sans-serif} a{color:oklch(42% 0.13 250);color:#2a5490;text-decoration:underline} a:hover{color:oklch(34% 0.11 250);color:#1f3f6e}</style>
+</helmet>
+
+<div style="padding:40px;display:flex;flex-direction:column;gap:56px">
+
+<div style="font-family:'Public Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:oklch(45% 0.01 90);max-width:1440px">Vista previa de estado del recurso (solo para revisión)</div>
+<div style="display:flex;gap:8px;max-width:1440px">
+  <span onClick="{{ setAvailable }}" style="cursor:pointer;padding:8px 16px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;background:{{ bgAvailable }};color:{{ colAvailable }};border:1px solid oklch(82% 0.006 90)">Disponible</span>
+  <span onClick="{{ setUnavailable }}" style="cursor:pointer;padding:8px 16px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;background:{{ bgUnavailable }};color:{{ colUnavailable }};border:1px solid oklch(82% 0.006 90)">No disponible</span>
+  <span onClick="{{ setError }}" style="cursor:pointer;padding:8px 16px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;background:{{ bgError }};color:{{ colError }};border:1px solid oklch(82% 0.006 90)">Error al abrir</span>
+</div>
+
+<div data-screen-label="Auditorio — Desktop">
+<div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:oklch(45% 0.01 90);margin-bottom:10px;font-family:'Public Sans',sans-serif">Auditorio — Desktop (1440px)</div>
+<div style="width:1440px;background:#fff;background-image:radial-gradient(circle,oklch(20% 0.02 250 / 0.05) 1px,transparent 1.2px);background-size:18px 18px">
+<dc-import name="SiteHeader" variant="desktop" active-nav="Institucional" hint-size="1440px,80px"></dc-import>
+<div style="padding:20px 80px 0;display:flex;align-items:center;gap:8px;font-family:'Public Sans',sans-serif;font-size:13px"><a href="Home.dc.html">Inicio</a><span style="color:oklch(68% 0.008 90)">›</span><a href="Página institucional.dc.html">Institucional</a><span style="color:oklch(68% 0.008 90)">›</span><span style="color:oklch(15% 0.006 90)" aria-current="page">Auditorio</span></div>
+
+<div style="padding:24px 80px 0;max-width:760px">
+  <h1 style="margin:0 0 16px;font-family:'Source Serif 4',serif;font-weight:700;font-size:42px;letter-spacing:-.01em;color:oklch(15% 0.006 90)">Auditorio</h1>
+  <div style="font-family:'Public Sans',sans-serif;font-size:16px;line-height:1.6;color:oklch(35% 0.01 90)">Espacio del Hospital Regional Río Gallegos para actividades académicas.</div>
+</div>
+
+<div style="padding:48px 80px 120px;max-width:760px">
+  <div style="border:1px solid oklch(90% 0.005 90);border-top:3px solid oklch(45% 0.09 85);border-radius:6px;overflow:hidden">
+    <div style="padding:24px;display:flex;gap:16px;align-items:flex-start">
+      <dc-import name="Icon" icon="file-text" size="26" color="oklch(42% 0.13 250)" hint-size="26px,26px"></dc-import>
+      <div style="flex:1">
+        <div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:16px;color:oklch(15% 0.006 90);margin-bottom:4px">Auditorio</div>
+        <div style="display:flex;align-items:center;gap:6px;font-family:'Public Sans',sans-serif;font-size:12px;color:oklch(45% 0.01 90)"><dc-import name="Icon" icon="external-link" size="12" color="oklch(45% 0.01 90)" hint-size="12px,12px"></dc-import>Carpeta de Google Drive · se abre en una pestaña nueva</div>
+      </div>
+    </div>
+
+    <sc-if value="{{ isAvailable }}">
+      <div style="padding:0 24px 24px">
+        <a href="https://drive.google.com/drive/folders/1hQEdt4USfNYkMG1aHYvK23OIs-1ELxAn?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;background:oklch(50% 0.15 250);background:#3462a8;color:#fff;padding:14px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;text-decoration:none">Abrir recurso<dc-import name="Icon" icon="external-link" size="16" color="#fff" hint-size="16px,16px"></dc-import></a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isUnavailable }}">
+      <div style="padding:0 24px 24px">
+        <div style="display:flex;gap:10px;align-items:flex-start;background:#fdf1d9;border-radius:6px;padding:14px;margin-bottom:14px">
+          <dc-import name="Icon" icon="alert-triangle" size="18" color="#7a5a12" hint-size="18px,18px"></dc-import>
+          <div style="font-family:'Public Sans',sans-serif;font-size:13px;color:#7a5a12">Este recurso no está disponible temporalmente. Podés escribirnos si necesitás acceder ahora.</div>
+        </div>
+        <span style="display:flex;align-items:center;justify-content:center;gap:8px;background:oklch(95% 0.004 90);color:oklch(68% 0.008 90);padding:14px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;cursor:not-allowed">Abrir recurso</span>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isError }}">
+      <div style="padding:0 24px 24px">
+        <div style="display:flex;gap:10px;align-items:flex-start;background:#fbe4e0;border-radius:6px;padding:14px;margin-bottom:14px">
+          <dc-import name="Icon" icon="alert-circle" size="18" color="#9c2b1a" hint-size="18px,18px"></dc-import>
+          <div style="font-family:'Public Sans',sans-serif;font-size:13px;color:#9c2b1a">No pudimos abrir este recurso. Verificá tu conexión o intentá de nuevo.</div>
+        </div>
+        <button type="button" onClick="{{ setAvailable }}" style="display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid oklch(15% 0.006 90);color:oklch(15% 0.006 90);padding:13px;border-radius:6px;background:#fff;font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer">Reintentar</button>
+      </div>
+    </sc-if>
+  </div>
+
+</div>
+
+<div style="padding:44px 80px;border-top:1px solid oklch(90% 0.005 90);background:oklch(98% 0.003 90);display:flex;justify-content:space-between;align-items:center">
+  <div><div style="width:16px;height:2px;background:oklch(45% 0.09 85);margin-bottom:8px"></div><div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;letter-spacing:-.015em;color:oklch(15% 0.006 90);margin-bottom:6px">¿Necesitás coordinar el uso del auditorio?</div><div style="font-family:'Public Sans',sans-serif;font-size:13px;color:oklch(35% 0.01 90)">docenciahrrg@gmail.com</div></div>
+  <a href="https://api.whatsapp.com/send?phone=5492966270210" target="_blank" rel="noopener" style="background:oklch(50% 0.15 250);background:#3462a8;color:#fff;padding:13px 22px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:14px;font-weight:600;text-decoration:none">Escribinos por WhatsApp</a>
+</div>
+
+<dc-import name="SiteFooter" variant="desktop" hint-size="1440px,320px"></dc-import>
+</div>
+</div>
+
+<div data-screen-label="Auditorio — Mobile">
+<div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:oklch(45% 0.01 90);margin-bottom:10px;font-family:'Public Sans',sans-serif">Auditorio — Mobile (390px)</div>
+<div style="width:390px;background:#fff;background-image:radial-gradient(circle,oklch(20% 0.02 250 / 0.05) 1px,transparent 1.2px);background-size:18px 18px">
+<dc-import name="SiteHeader" variant="mobile" active-nav="Institucional" hint-size="390px,60px"></dc-import>
+<div style="padding:14px 20px 0;display:flex;align-items:center;gap:8px;font-family:'Public Sans',sans-serif;font-size:13px"><dc-import name="Icon" icon="chevron-left" size="14" color="oklch(42% 0.13 250)" hint-size="14px,14px"></dc-import><a href="Página institucional.dc.html" style="text-decoration:none">Institucional</a></div>
+
+<div style="padding:14px 20px 20px">
+  <h2 style="margin:0 0 8px;font-family:'Source Serif 4',serif;font-weight:700;font-size:23px;letter-spacing:-.015em;color:oklch(15% 0.006 90)">Auditorio</h2>
+  <div style="font-family:'Public Sans',sans-serif;font-size:13px;line-height:1.5;color:oklch(35% 0.01 90)">Espacio del HRRG para actividades académicas.</div>
+</div>
+
+<div style="padding:0 20px 24px">
+  <div style="border:1px solid oklch(90% 0.005 90);border-top:3px solid oklch(45% 0.09 85);border-radius:6px;overflow:hidden">
+    <div style="padding:16px;display:flex;gap:12px;align-items:flex-start">
+      <dc-import name="Icon" icon="file-text" size="22" color="oklch(42% 0.13 250)" hint-size="22px,22px"></dc-import>
+      <div style="flex:1">
+        <div style="font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;color:oklch(15% 0.006 90);margin-bottom:3px">Auditorio</div>
+        <div style="display:flex;align-items:center;gap:5px;font-family:'Public Sans',sans-serif;font-size:11px;color:oklch(45% 0.01 90)"><dc-import name="Icon" icon="external-link" size="11" color="oklch(45% 0.01 90)" hint-size="11px,11px"></dc-import>Se abre en Google Drive</div>
+      </div>
+    </div>
+
+    <sc-if value="{{ isAvailable }}">
+      <div style="padding:0 16px 16px">
+        <a href="https://drive.google.com/drive/folders/1hQEdt4USfNYkMG1aHYvK23OIs-1ELxAn?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;background:oklch(50% 0.15 250);background:#3462a8;color:#fff;padding:14px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;text-decoration:none;min-height:44px">Abrir recurso<dc-import name="Icon" icon="external-link" size="15" color="#fff" hint-size="15px,15px"></dc-import></a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isUnavailable }}">
+      <div style="padding:0 16px 16px">
+        <div style="display:flex;gap:8px;align-items:flex-start;background:#fdf1d9;border-radius:6px;padding:12px;margin-bottom:12px">
+          <dc-import name="Icon" icon="alert-triangle" size="16" color="#7a5a12" hint-size="16px,16px"></dc-import>
+          <div style="font-family:'Public Sans',sans-serif;font-size:12px;color:#7a5a12">No disponible temporalmente.</div>
+        </div>
+        <span style="display:flex;align-items:center;justify-content:center;background:oklch(95% 0.004 90);color:oklch(68% 0.008 90);padding:14px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;min-height:44px">Abrir recurso</span>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isError }}">
+      <div style="padding:0 16px 16px">
+        <div style="display:flex;gap:8px;align-items:flex-start;background:#fbe4e0;border-radius:6px;padding:12px;margin-bottom:12px">
+          <dc-import name="Icon" icon="alert-circle" size="16" color="#9c2b1a" hint-size="16px,16px"></dc-import>
+          <div style="font-family:'Public Sans',sans-serif;font-size:12px;color:#9c2b1a">No pudimos abrir este recurso.</div>
+        </div>
+        <button type="button" onClick="{{ setAvailable }}" style="display:flex;align-items:center;justify-content:center;border:1.5px solid oklch(15% 0.006 90);color:oklch(15% 0.006 90);padding:13px;border-radius:6px;background:#fff;font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;min-height:44px;width:100%;cursor:pointer">Reintentar</button>
+      </div>
+    </sc-if>
+  </div>
+</div>
+
+<div style="padding:18px 20px;border-top:1px solid oklch(90% 0.005 90);background:oklch(98% 0.003 90)">
+  <div style="width:14px;height:2px;background:oklch(45% 0.09 85);margin-bottom:8px"></div>
+  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:15px;color:oklch(15% 0.006 90);margin-bottom:10px">¿Necesitás coordinar el auditorio?</div>
+  <a href="https://api.whatsapp.com/send?phone=5492966270210" target="_blank" rel="noopener" style="display:block;text-align:center;background:oklch(50% 0.15 250);background:#3462a8;color:#fff;padding:13px;border-radius:6px;font-family:'Public Sans',sans-serif;font-size:14px;font-weight:600;text-decoration:none;min-height:44px">Escribinos por WhatsApp</a>
+</div>
+
+<dc-import name="SiteFooter" variant="mobile" hint-size="390px,320px"></dc-import>
+</div>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { view: 'available' };
+  renderVals() {
+    const v = this.state.view;
+    const set = x => () => this.setState({ view: x });
+    const btn = a => ({ bg: a ? 'oklch(15% 0.006 90)' : '#fff', color: a ? '#fff' : 'oklch(35% 0.01 90)' });
+    const bA = btn(v === 'available'), bU = btn(v === 'unavailable'), bE = btn(v === 'error');
+    return {
+      setAvailable: set('available'), setUnavailable: set('unavailable'), setError: set('error'),
+      bgAvailable: bA.bg, colAvailable: bA.color, bgUnavailable: bU.bg, colUnavailable: bU.color, bgError: bE.bg, colError: bE.color,
+      isAvailable: v === 'available', isUnavailable: v === 'unavailable', isError: v === 'error'
+    };
+  }
+}
+
+</script>
+</body>
+</html>
