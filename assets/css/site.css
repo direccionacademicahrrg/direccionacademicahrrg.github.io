@@ -501,6 +501,7 @@ input, button { font: inherit; color: inherit; }
 .row--featured .row-cat { display: inline-block; background: #fff; }
 .row--featured .row-title { font-family: var(--font-serif); font-weight: 700; font-size: 17px; }
 .row-past { font-family: var(--font-sans); font-size: 11px; color: var(--ink-3); flex: none; }
+.row-avatar { width: 32px; height: 32px; border-radius: 999px; background: var(--surface-2); color: var(--ink-3); display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-weight: 700; font-size: 12px; flex: none; }
 .row-date time { display: block; }
 .novedades-list { padding: 20px var(--pad-x) 0; }
 .res-count { font-family: var(--font-sans); font-size: 14px; color: var(--ink-3); margin: 0 0 16px; }
@@ -942,3 +943,176 @@ input, button { font: inherit; color: inherit; }
 .info-row-desc { font-family:var(--font-sans); font-size:12px; color:var(--ink-3); margin-top:4px; }
 .info-row-meta { font-family:var(--font-sans); font-size:12px; color:var(--ink-3); flex:none; align-self:center; }
 @media (min-width:1024px) { .info-row { padding:22px 24px; } .info-row-title { font-size:15px; } .info-row-desc { font-size:13px; } }
+
+/* ============ NOTICIAS (maqueta editorial tipo diario) ============ */
+.news-masthead { padding: 32px var(--pad-x) 20px; border-bottom: 3px double var(--ink); text-align: center; }
+.news-masthead .eyebrow { font-family: var(--font-sans); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+.news-masthead h1 { font-family: var(--font-serif); font-weight: 700; font-size: 34px; letter-spacing: -.015em; margin: 0; }
+.news-masthead .dateline { font-family: var(--font-sans); font-size: 12px; color: var(--ink-3); margin-top: 8px; }
+@media (min-width: 1024px) { .news-masthead h1 { font-size: 48px; } }
+
+.news-grid { padding: 32px var(--pad-x) 64px; display: flex; flex-direction: column; gap: 32px; }
+@media (min-width: 1024px) { .news-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 48px var(--pad-x) 96px; } }
+
+.news-lead { border-bottom: 1px solid var(--line); padding-bottom: 28px; }
+.news-lead .news-photo { width: 100%; height: auto; border-radius: var(--radius); display: block; margin-bottom: 16px; }
+.news-lead .news-kicker { font-family: var(--font-sans); font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--blue-dark); margin-bottom: 8px; display: block; }
+.news-lead h2 { font-family: var(--font-serif); font-weight: 700; font-size: 28px; letter-spacing: -.015em; margin: 0 0 12px; line-height: 1.15; }
+.news-lead p { font-family: var(--font-sans); font-size: 15px; line-height: 1.65; color: var(--ink-2); margin: 0 0 8px; max-width: 640px; }
+.news-lead .news-byline { font-family: var(--font-sans); font-size: 12px; color: var(--ink-3); }
+@media (min-width: 1024px) { .news-lead h2 { font-size: 32px; } }
+
+.news-sidebar { display: flex; flex-direction: column; }
+.news-sidebar-title { font-family: var(--font-sans); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 4px; }
+.news-item { display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.news-item:last-child { border-bottom: none; }
+.news-item .news-thumb { height: 96px; width: auto; max-width: 160px; border-radius: var(--radius); flex: none; display: block; }
+.news-item .news-kicker { font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--blue-dark); display: block; margin-bottom: 4px; }
+.news-item h3 { font-family: var(--font-serif); font-weight: 700; font-size: 16px; line-height: 1.3; margin: 0 0 4px; }
+.news-item .news-byline { font-family: var(--font-sans); font-size: 11px; color: var(--ink-3); }
+
+.news-section-break { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 32px; margin-top: 8px; }
+.news-section-break .news-sidebar-title { border-bottom: 2px solid var(--ink); }
+.news-columns { display: flex; flex-direction: column; gap: 24px; }
+@media (min-width: 1024px) { .news-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; } }
+.news-col-item { border-top: 3px solid var(--gold); padding-top: 14px; }
+.news-col-item .news-thumb { width: 100%; aspect-ratio: 4/3; border-radius: var(--radius); object-fit: cover; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-size: 12px; color: var(--ink-3); text-align: center; padding: 12px; margin-bottom: 12px; }
+.news-col-item .news-kicker { font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--blue-dark); display: block; margin-bottom: 6px; }
+.news-col-item h3 { font-family: var(--font-serif); font-weight: 700; font-size: 17px; line-height: 1.3; margin: 0 0 6px; }
+.news-col-item p { font-family: var(--font-sans); font-size: 13px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+.news-thumb-col { width: 100%; height: auto; border-radius: var(--radius); margin-bottom: 12px; display: block; }
+
+.news-photo-strip { padding: 0 var(--pad-x); }
+.news-photo-strip img { width: 100%; height: auto; border-radius: var(--radius); display: block; }
+.news-group-photo { width: 100%; max-height: 420px; object-fit: contain; background: var(--surface-2); border-radius: var(--radius); margin-bottom: 20px; display: block; }
+@media (min-width: 1024px) { .news-photo-strip { max-width: 1200px; margin: 0 auto; } }
+
+/* ============================================================
+   MEJORAS DE INTERACCIÓN Y NAVEGACIÓN
+   Refuerzos sobre los componentes ya aprobados: sin colores
+   nuevos, sin tipografías nuevas, sin cambios de arquitectura.
+   ============================================================ */
+
+/* --- Navegación principal: subrayado animado desde el centro --- */
+.hdr-nav a { position: relative; }
+.hdr-nav a::after {
+  content: "";
+  position: absolute; left: 50%; right: 50%; bottom: -1px;
+  height: 2px; background: var(--gold);
+  transition: left var(--dur) ease, right var(--dur) ease;
+}
+.hdr-nav a:hover::after { left: 0; right: 0; }
+.hdr-nav a[aria-current="page"] { border-bottom-color: transparent; }
+.hdr-nav a[aria-current="page"]::after { left: 0; right: 0; }
+
+/* --- Menú mobile: entrada suave del panel y de cada ítem --- */
+@keyframes mnav-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@keyframes mnav-item-in { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+.mnav:not([hidden]) { animation: mnav-in .22s ease both; }
+.mnav:not([hidden]) .mnav-list a { animation: mnav-item-in .26s ease both; }
+.mnav:not([hidden]) .mnav-list a:nth-child(1) { animation-delay: .02s; }
+.mnav:not([hidden]) .mnav-list a:nth-child(2) { animation-delay: .05s; }
+.mnav:not([hidden]) .mnav-list a:nth-child(3) { animation-delay: .08s; }
+.mnav:not([hidden]) .mnav-list a:nth-child(4) { animation-delay: .11s; }
+.mnav:not([hidden]) .mnav-list a:nth-child(5) { animation-delay: .14s; }
+.mnav:not([hidden]) .mnav-list a:nth-child(6) { animation-delay: .17s; }
+.mnav:not([hidden]) .mnav-list a:nth-child(7) { animation-delay: .20s; }
+.mnav-list a { position: relative; }
+.mnav-list a[aria-current="page"]::before {
+  content: ""; position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 3px; background: var(--gold); border-radius: 0 2px 2px 0;
+}
+.mnav-list a .ico { transition: transform var(--dur) ease; }
+.mnav-list a:hover .ico { transform: translateX(3px); }
+
+/* --- Breadcrumb: mejor lectura y afordancia de retorno --- */
+.crumb { flex-wrap: wrap; row-gap: 4px; }
+.crumb a { border-radius: 4px; padding: 0 4px; transition: background-color var(--dur) ease, color var(--dur) ease; }
+.crumb a:hover { background: var(--tint-blue); text-decoration: none; color: var(--blue-deep); }
+.crumb .back-ico .ico { transition: transform var(--dur) ease; }
+.crumb a:hover .back-ico .ico, .crumb .back-ico:hover .ico { transform: translateX(-2px); }
+
+/* --- Accesos rápidos: tarjeta con acento superior progresivo --- */
+@media (min-width: 1024px) {
+  .qa { position: relative; overflow: hidden; }
+  .qa::before {
+    content: "";
+    position: absolute; inset: 0 auto auto 0;
+    height: 3px; width: 0;
+    background: var(--gold);
+    transition: width .28s ease;
+  }
+  .qa:hover::before, .qa:focus-visible::before { width: 100%; }
+  .qa:hover { border-top-color: var(--line-strong); }
+  .qa:active { transform: translateY(0); box-shadow: none; }
+}
+
+/* --- Filas de enlaces institucionales: acento lateral + chevron --- */
+.link-row { position: relative; transition: background-color var(--dur) ease, padding-left var(--dur) ease; }
+.link-row::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0; background: var(--blue);
+  transition: width var(--dur) ease;
+}
+.link-row:hover::before, .link-row:focus-visible::before { width: 3px; }
+.link-row .ico { transition: transform var(--dur) ease, color var(--dur) ease; }
+.link-row:hover .ico { transform: translateX(3px); color: var(--blue-dark); }
+.link-row:hover .link-row-title { color: var(--blue-dark); }
+.link-row-title { transition: color var(--dur) ease; }
+
+/* --- Filas de novedades: acento lateral coherente con el resto --- */
+.row { position: relative; }
+.row::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0; background: var(--blue);
+  transition: width var(--dur) ease;
+}
+a.row:hover::before, a.row:focus-visible::before { width: 3px; }
+a.row .ico:last-child { transition: transform var(--dur) ease; }
+a.row:hover .ico:last-child { transform: translateX(3px); }
+
+/* --- Recursos: acento lateral e icono con respuesta --- */
+.resource-item { position: relative; transition: background-color var(--dur) ease; }
+.resource-item::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0; background: var(--blue);
+  transition: width var(--dur) ease;
+}
+.resource-item:hover::before { width: 3px; }
+.ri-icon { transition: transform var(--dur) ease; }
+.resource-item:hover .ri-icon { transform: scale(1.08); }
+
+/* --- Noticias: tarjetas editoriales con respuesta al hover --- */
+.news-col-item {
+  transition: border-top-color var(--dur) ease, transform var(--dur) ease;
+}
+.news-col-item:hover { border-top-color: var(--blue); transform: translateY(-2px); }
+.news-thumb-col { overflow: hidden; }
+.news-col-item h3 { transition: color var(--dur) ease; }
+.news-col-item:hover h3 { color: var(--blue-dark); }
+.news-item { transition: background-color var(--dur) ease; }
+.news-item:hover { background: var(--tint-neutral); }
+
+/* --- Chips y pestañas de filtro: respuesta táctil --- */
+.res-tabs button, .chip { transition: background-color var(--dur) ease, border-color var(--dur) ease, color var(--dur) ease, transform var(--dur) ease; }
+.res-tabs button:active, .chip:active { transform: scale(.97); }
+
+/* --- Botones: respuesta al presionar coherente en todo el portal --- */
+.btn:active { transform: translateY(0); box-shadow: none; }
+
+/* --- Respeto de reduced motion para todo lo anterior --- */
+@media (prefers-reduced-motion: reduce) {
+  .mnav:not([hidden]),
+  .mnav:not([hidden]) .mnav-list a { animation: none !important; }
+  .hdr-nav a::after { transition: none !important; }
+  .news-col-item:hover,
+  .resource-item:hover .ri-icon,
+  .link-row:hover .ico,
+  .mnav-list a:hover .ico,
+  a.row:hover .ico:last-child,
+  .crumb a:hover .back-ico .ico,
+  .res-tabs button:active, .chip:active { transform: none !important; }
+}
